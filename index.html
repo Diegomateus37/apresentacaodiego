@@ -5,29 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diego Mateus - Apresentação</title>
   <style>
+    /* ====== Body e Fundo ====== */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      height: 100vh;
+      padding: 20px 0; /* espaço topo e base */
+      min-height: 100vh; /* permite scroll em telas pequenas */
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start; /* começa no topo */
       text-align: center;
-
-      /* Fundo estilo TI */
       background: radial-gradient(circle at top, #0f2027, #09141a, #000000);
       color: #e0e0e0;
     }
 
+    /* ====== Container ====== */
     .container {
       max-width: 800px;
+      width: 90%;
       padding: 30px;
       border-radius: 15px;
       background: rgba(20, 20, 20, 0.85);
       box-shadow: 0 0 20px rgba(0, 255, 200, 0.2), 0 0 50px rgba(0, 255, 150, 0.1);
     }
 
+    /* ====== Títulos ====== */
     h1 {
       color: #00ffc8;
       font-size: 2.2em;
@@ -38,15 +40,6 @@
       color: #ff006e;
     }
 
-    img {
-      margin: 20px auto;
-      border-radius: 50%;
-      max-width: 180px;
-      display: block;
-      border: 3px solid #00ffc8;
-      box-shadow: 0 0 15px rgba(0, 255, 200, 0.4);
-    }
-
     h2 {
       margin-top: 30px;
       color: #00ffc8;
@@ -54,6 +47,17 @@
       padding-bottom: 6px;
     }
 
+    /* ====== Imagem ====== */
+    img {
+      margin: 60px auto 20px auto; /* desce a imagem */
+      border-radius: 50%;
+      max-width: 180px;
+      display: block;
+      border: 3px solid #00ffc8;
+      box-shadow: 0 0 15px rgba(0, 255, 200, 0.4);
+    }
+
+    /* ====== Listas ====== */
     ul {
       list-style: none;
       padding-left: 0;
@@ -78,6 +82,7 @@
       color: #00aaff;
     }
 
+    /* ====== Links ====== */
     a {
       color: #00ffc8;
       text-decoration: none;
@@ -89,11 +94,36 @@
       text-shadow: 0 0 8px #ff006e;
     }
 
+    /* ====== Citação ====== */
     .quote {
       margin-top: 30px;
       font-style: italic;
       color: #bbb;
       font-size: 1.1em;
+    }
+
+    /* ====== Responsividade para celular ====== */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      img {
+        margin-top: 80px; /* desce mais a imagem */
+        max-width: 150px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.2em;
+      }
+
+      .quote {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
