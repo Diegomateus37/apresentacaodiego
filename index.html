@@ -8,23 +8,27 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
       background: #f9f9f9;
       color: #2c3e50;
-      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      padding: 20px;
     }
     h1 {
-      text-align: center;
       color: #2c3e50;
     }
-    p {
-      text-align: center;
-    }
     img {
-      display: block;
       margin: 20px auto;
       border-radius: 8px;
       max-width: 200px;
+      display: block;
     }
     h2 {
       margin-top: 30px;
@@ -34,14 +38,17 @@
       list-style: none;
       padding-left: 0;
     }
+    ul li {
+      margin: 6px 0;
+    }
     ul li::before {
       content: "✔️ ";
     }
-    .quote {
-      margin-top: 30px;
-      font-style: italic;
-      text-align: center;
-      color: #555;
+    .sobre li::before {
+      content: "💡 ";
+    }
+    .contato li::before {
+      content: "📌 ";
     }
     a {
       color: #0077cc;
@@ -50,41 +57,48 @@
     a:hover {
       text-decoration: underline;
     }
+    .quote {
+      margin-top: 30px;
+      font-style: italic;
+      color: #555;
+    }
   </style>
 </head>
 <body>
-  <h1>Olá, eu sou o Diego Mateus 👋</h1>
+  <div class="container">
+    <h1>Olá, eu sou o Diego Mateus 👋</h1>
 
-  <p>Bacharel em Ciências da Computação • 📚 Pedagogia</p>
+    <p><strong>Bacharel em Ciências da Computação</strong> • 📚 <strong>Pedagogia</strong></p>
 
-  <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
+    <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
-  <h2>🎯 Áreas em que já atuei</h2>
-  <ul>
-    <li>Coordenação e Gestão de AVA (Moodle)</li>
-    <li>Gestão Acadêmica e Pedagógica</li>
-    <li>Produção de Conteúdo e Tutoria Educacional</li>
-    <li>Secretaria Acadêmica</li>
-    <li>Programador de Sistemas de Informação</li>
-    <li>Suporte Técnico em TI (Nível I)</li>
-    <li>Conhecimento prático em Banco de Dados</li>
-    <li>Assistência Técnica em Eletrocomercial e Móveis</li>
-    <li>Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
-  </ul>
+    <h2>🎯 Áreas em que já atuei</h2>
+    <ul>
+      <li>Coordenação e Gestão de AVA (Moodle)</li>
+      <li>Gestão Acadêmica e Pedagógica</li>
+      <li>Produção de Conteúdo e Tutoria Educacional</li>
+      <li>Secretaria Acadêmica</li>
+      <li>Programador de Sistemas de Informação</li>
+      <li>Suporte Técnico em TI (Nível I)</li>
+      <li>Conhecimento prático em Banco de Dados</li>
+      <li>Assistência Técnica em Eletrocomercial e Móveis</li>
+      <li>Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
+    </ul>
 
-  <h2>📌 Sobre mim</h2>
-  <ul>
-    <li>🎓 Bacharel em Ciências da Computação</li>
-    <li>📚 Pedagogia</li>
-    <li>✨ Atuação em apoio pedagógico, orientação acadêmica e suporte tecnológico</li>
-  </ul>
+    <h2>💼 Sobre mim</h2>
+    <ul class="sobre">
+      <li>Bacharel em Ciências da Computação</li>
+      <li>Pedagogia</li>
+      <li>Atuação em apoio pedagógico, orientação acadêmica e suporte tecnológico</li>
+    </ul>
 
-  <h2>📞 Contato</h2>
-  <ul>
-    <li>📲 WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelo%20GitHub!" target="_blank">Clique aqui</a></li>
-    <li>✉️ E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
-  </ul>
+    <h2>📞 Contato</h2>
+    <ul class="contato">
+      <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelo%20GitHub!" target="_blank">Clique aqui</a></li>
+      <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
+    </ul>
 
-  <p class="quote">“Ensinar é transformar conhecimento em oportunidade.”</p>
+    <p class="quote">“Ensinar é transformar conhecimento em oportunidade.”</p>
+  </div>
 </body>
 </html>
