@@ -31,7 +31,7 @@ Bacharel em Ciências da Computação • 📚 Pedagogia
 - ✨ Atuação em apoio pedagógico, orientação acadêmica e suporte tecnológico  
 
 ### 📞 Contato
-- 📲 WhatsApp: [Clique aqui](https://wa.me/5533984145841?text=Olá%20Diego,%20vim%20pelo%20GitHub!)  
+- 📲 WhatsApp: [Clique aqui](https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelo%20GitHub!)  
 - ✉️ E-mail: [diego.profissional37@outlook.com](mailto:diego.profissional37@outlook.com)  
 
 ---
