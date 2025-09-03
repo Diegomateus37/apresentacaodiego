@@ -7,7 +7,7 @@ Bacharel em Ciências da Computação • 📚 Pedagogia
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Diegomateus37/apresenta-odiego/main/Diego%20img%20.jpeg" width="200" alt="Apresentação Diego Mateus">
+  <img src="[https://raw.githubusercontent.com/Diegomateus37/apresenta-odiego/main/Diego%20img%20.jpeg](https://github.com/Diegomateus37/apresentacaodiego/blob/main/Diego%20img%20.jpeg)" width="200" alt="Apresentação Diego Mateus">
 </p>
 
 ---
