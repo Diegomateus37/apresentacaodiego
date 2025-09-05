@@ -27,8 +27,8 @@
       margin: 20px;
       padding: 30px;
       border-radius: 15px;
-      background: rgba(255, 255, 255, 0.9); /* caixa clara translúcida */
-      box-shadow: 0 0 25px rgba(0, 255, 200, 0.3), 0 0 60px rgba(0, 255, 150, 0.2);
+      background: rgba(242, 242, 242, 0.95); /* cinza claro translúcido */
+      box-shadow: 0 0 25px rgba(0, 234, 255, 0.3), 0 0 60px rgba(0, 200, 255, 0.2);
       z-index: 1;
       position: relative;
       color: #000; /* texto escuro dentro da caixa */
@@ -36,7 +36,7 @@
 
     /* ====== Títulos ====== */
     h1 {
-      color: #007f66;
+      color: #007f99;
       font-size: 2.2em;
     }
 
@@ -47,7 +47,7 @@
 
     h2 {
       margin-top: 30px;
-      color: #007f66;
+      color: #007f99;
       border-bottom: 1px solid #ccc;
       padding-bottom: 6px;
     }
@@ -58,8 +58,8 @@
       border-radius: 50%;
       max-width: 180px;
       display: block;
-      border: 3px solid #00ffc8;
-      box-shadow: 0 0 15px rgba(0, 255, 200, 0.4);
+      border: 3px solid #00eaff;
+      box-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
     }
 
     /* ====== Listas ====== */
@@ -74,12 +74,17 @@
 
     ul li::before {
       content: "✔️ ";
-      color: #007f66;
+      color: #007f99;
+    }
+
+    .formacao li::before {
+      content: "🎓 ";
+      color: #ff9900;
     }
 
     .sobre li::before {
       content: "💡 ";
-      color: #ff9900;
+      color: #007f99;
     }
 
     .meutrabalho li::before {
@@ -94,7 +99,7 @@
 
     /* ====== Links ====== */
     a {
-      color: #007f66;
+      color: #007f99;
       text-decoration: none;
       transition: 0.3s;
     }
@@ -155,9 +160,13 @@
   <div class="container">
     <h1>Olá, eu sou o Diego Mateus 👋</h1>
 
-    <p><strong>🎓 Bacharel em Ciências da Computação</strong> 📚 <strong>Pedagogia</strong></p>
-
     <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
+
+    <h2>📘 Formações Acadêmicas</h2>
+    <ul class="formacao">
+      <li>Bacharel em Ciências da Computação</li>
+      <li>Pedagogia</li>
+    </ul>
 
     <h2>🎯 Áreas em que já atuei</h2>
     <ul>
@@ -175,8 +184,6 @@
 
     <h2>💼 Sobre mim</h2>
     <ul class="sobre">
-      <li>Bacharel em Ciências da Computação</li>
-      <li>Pedagogia</li>
       <li>Professor Particular & Mentor Acadêmico</li>
       <li>Atuação em apoio pedagógico, orientação acadêmica e suporte tecnológico</li>
       <li>TCC | Disciplinas | Estágio</li>
@@ -218,7 +225,7 @@
       ctx.fillStyle = "rgba(26, 26, 26, 0.08)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#00ff66";
+      ctx.fillStyle = "#00eaff"; // Azul ciano
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
