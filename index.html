@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diego Mateus - Apresentação</title>
   <style>
-    /* ====== Body e Fundo ====== */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #eaeaea;
@@ -19,7 +18,6 @@
       user-select: none;
     }
 
-    /* ====== Container ====== */
     .container {
       max-width: 800px;
       width: 90%;
@@ -33,7 +31,6 @@
       color: #f5f5f5;
     }
 
-    /* ====== Títulos ====== */
     h1 {
       color: #00ff6a;
       font-size: 2.2em;
@@ -51,7 +48,6 @@
       padding-bottom: 6px;
     }
 
-    /* ====== Imagem ====== */
     img {
       margin: 60px auto 20px auto;
       border-radius: 50%;
@@ -66,7 +62,6 @@
       user-drag: none;
     }
 
-    /* ====== Listas ====== */
     ul {
       list-style: none;
       padding-left: 0;
@@ -74,21 +69,18 @@
 
     ul li {
       margin: 8px 0;
-      color: #ffffff; /* Itens em branco */
+      color: #ffffff;
     }
 
-    /* Contato → pino */
     .contato li::before {
       content: "📌 ";
       color: #ff4aff;
     }
 
-    /* Formações Acadêmicas → sem marcador */
     .formacoes li::before {
       content: "";
     }
 
-    /* ====== Links ====== */
     a {
       color: #00ff6a;
       text-decoration: none;
@@ -100,7 +92,6 @@
       text-shadow: 0 0 8px #ff006e;
     }
 
-    /* ====== Citação ====== */
     .quote {
       margin-top: 30px;
       font-style: italic;
@@ -108,7 +99,6 @@
       font-size: 1.1em;
     }
 
-    /* ====== Canvas Fundo ====== */
     canvas {
       position: fixed;
       top: 0;
@@ -119,7 +109,6 @@
       pointer-events: none;
     }
 
-    /* ====== Responsividade ====== */
     @media (max-width: 600px) {
       .container {
         padding: 20px;
@@ -148,23 +137,21 @@
   <canvas id="matrix"></canvas>
   <div class="container">
     <h1>Olá, eu sou o Diego Mateus 👋</h1>
-
     <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
-
     <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
     <h2>🎯 Áreas em que já atuei</h2>
     <ul class="atuacao">
-      <li>Graduação & Pós-Graduação (Lato Sensu)</li>
-      <li>Coordenação e Gestão de AVA (Moodle)</li>
-      <li>Gestão Acadêmica e Pedagógica</li>
-      <li>Produção de Conteúdo e Tutoria Educacional</li>
-      <li>Secretaria Acadêmica</li>
-      <li>Programador de Sistemas de Informação</li>
-      <li>Suporte Técnico em TI</li>
-      <li>Conhecimento prático em Banco de Dados</li>
-      <li>Assistência Técnica em Eletrocomercial e Móveis</li>
-      <li>Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
+      <li>⚡ Graduação & Pós-Graduação (Lato Sensu)</li>
+      <li>⚡ Coordenação e Gestão de AVA (Moodle)</li>
+      <li>⚡ Gestão Acadêmica e Pedagógica</li>
+      <li>⚡ Produção de Conteúdo e Tutoria Educacional</li>
+      <li>⚡ Secretaria Acadêmica</li>
+      <li>⚡ Programador de Sistemas de Informação</li>
+      <li>⚡ Suporte Técnico em TI</li>
+      <li>⚡ Conhecimento prático em Banco de Dados</li>
+      <li>⚡ Assistência Técnica em Eletrocomercial e Móveis</li>
+      <li>⚡ Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
     </ul>
 
     <h2>📘 Formações Acadêmicas</h2>
@@ -178,10 +165,10 @@
 
     <h2>🚀 Atuação Profissional (Ensino Superior)</h2>
     <ul class="meutrabalho">
-      <li>Mentor Acadêmico</li>
-      <li>Auxílio em TCC, estágios e orientação acadêmica</li>
-      <li>Atuação em apoio pedagógico e suporte em TI</li>
-      <li>Mentoria em projetos acadêmicos</li>
+      <li>👨‍🏫 Mentor Acadêmico</li>
+      <li>👨‍🏫 Auxílio em TCC, estágios e orientação acadêmica</li>
+      <li>👨‍🏫 Atuação em apoio pedagógico e suporte em TI</li>
+      <li>👨‍🏫 Mentoria em projetos acadêmicos</li>
     </ul>
     <p><strong>Se tiver interesse algum desses trabalhos, entre em contato no link abaixo 👇</strong></p>
 
@@ -194,14 +181,14 @@
     <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
   </div>
 
-  <!-- Script Matrix + Alternância Emojis + Proteção -->
   <script>
+    // Proteção: desativar clique direito e seleção de texto
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('selectstart', e => e.preventDefault());
 
+    // Canvas Matrix
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
-
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
@@ -227,13 +214,6 @@
     window.addEventListener("resize", () => {
       canvas.height = window.innerHeight;
       canvas.width = window.innerWidth;
-    });
-
-    // Alternância automática de emojis ⚡ e 🧠
-    const items = document.querySelectorAll('.atuacao li');
-    const emojis = ['⚡', '🧠'];
-    items.forEach((item, index) => {
-      item.innerHTML = `${emojis[index % emojis.length]} ${item.innerHTML}`;
     });
   </script>
 </body>
