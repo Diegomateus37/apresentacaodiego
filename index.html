@@ -15,17 +15,29 @@
       justify-content: center;
       align-items: flex-start;
       text-align: center;
-      background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #000000);
-      background-size: 400% 400%;
-      animation: gradientMove 12s ease infinite;
+      background: radial-gradient(circle at top, #0f2027, #09141a, #000000);
       color: #e0e0e0;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* Animação de fundo */
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    /* ====== Emojis nos cantos ====== */
+    .emoji {
+      position: fixed;
+      font-size: 2.5em;
+      opacity: 0.2;
+      animation: pulse 4s infinite alternate;
+      pointer-events: none;
+    }
+
+    .emoji.top-left { top: 15px; left: 15px; }
+    .emoji.top-right { top: 15px; right: 15px; }
+    .emoji.bottom-left { bottom: 15px; left: 15px; }
+    .emoji.bottom-right { bottom: 15px; right: 15px; }
+
+    @keyframes pulse {
+      from { text-shadow: 0 0 5px #00ffc8; opacity: 0.15; }
+      to { text-shadow: 0 0 20px #00ffc8; opacity: 0.35; }
     }
 
     /* ====== Container ====== */
@@ -36,6 +48,7 @@
       border-radius: 15px;
       background: rgba(20, 20, 20, 0.85);
       box-shadow: 0 0 25px rgba(0, 255, 200, 0.3), 0 0 60px rgba(0, 255, 150, 0.2);
+      z-index: 1;
     }
 
     /* ====== Títulos ====== */
@@ -142,6 +155,12 @@
   </style>
 </head>
 <body>
+  <!-- Emojis fixos nos cantos -->
+  <div class="emoji top-left">💻</div>
+  <div class="emoji top-right">📚</div>
+  <div class="emoji bottom-left">⚡</div>
+  <div class="emoji bottom-right">🖥️</div>
+
   <div class="container">
     <h1>Olá, eu sou o Diego Mateus 👋</h1>
 
@@ -175,12 +194,12 @@
     <!-- Nova Seção -->
     <h2>🚀 Meu Trabalho</h2>
     <ul class="meutrabalho">
-      <li>Professor particular em diversas disciplinas</li>
+      <li>Professor Particular</li>
       <li>Auxílio em TCC, estágios e orientação acadêmica</li>
       <li>Atuação em apoio pedagógico e suporte em TI</li>
       <li>Mentoria em projetos acadêmicos e profissionais</li>
     </ul>
-    <p><em>Se tiver interesse em conhecer mais ou em algum desses trabalhos, entre em contato pelos links abaixo 👇</em></p>
+    <p><em>Se tiver interesse em conhecer mais ou em algum desses trabalhos, entre em contato no link abaixo 👇</em></p>
 
     <h2>📞 Contato</h2>
     <ul class="contato">
