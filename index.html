@@ -8,13 +8,13 @@
     /* ====== Body e Fundo ====== */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #222;
+      color: #eaeaea;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       text-align: center;
-      background: #1a1a1a; /* fundo cinza escuro */
+      background: #0d0d0d; /* fundo bem escuro */
       overflow-x: hidden;
     }
 
@@ -25,28 +25,28 @@
       margin: 20px;
       padding: 30px;
       border-radius: 15px;
-      background: rgba(176, 176, 176, 0.95); /* cinza grafite translúcido */
-      box-shadow: 0 0 25px rgba(0, 234, 255, 0.3), 0 0 60px rgba(0, 200, 255, 0.2);
+      background: rgba(40, 40, 40, 0.95); /* cinza bem escuro */
+      box-shadow: 0 0 25px rgba(0, 255, 100, 0.25), 0 0 60px rgba(0, 255, 100, 0.15);
       z-index: 1;
       position: relative;
-      color: #000; /* texto escuro dentro da caixa */
+      color: #f5f5f5; /* texto claro dentro da caixa */
     }
 
     /* ====== Títulos ====== */
     h1 {
-      color: #00eaff;
+      color: #00ff6a; /* verde Matrix */
       font-size: 2.2em;
     }
 
     h1::before {
       content: "</> ";
-      color: #ff006e;
+      color: #ff006e; /* rosa destaque */
     }
 
     h2 {
       margin-top: 30px;
-      color: #00eaff;
-      border-bottom: 1px solid #333;
+      color: #00ff6a;
+      border-bottom: 1px solid #555;
       padding-bottom: 6px;
     }
 
@@ -56,8 +56,8 @@
       border-radius: 50%;
       max-width: 180px;
       display: block;
-      border: 3px solid #00eaff;
-      box-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
+      border: 3px solid #00ff6a;
+      box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
     }
 
     /* ====== Listas ====== */
@@ -72,7 +72,7 @@
 
     ul li::before {
       content: "✔️ ";
-      color: #00eaff;
+      color: #00ff6a;
     }
 
     .sobre li::before {
@@ -82,12 +82,12 @@
 
     .contato li::before {
       content: "📌 ";
-      color: #00aaff;
+      color: #ff4aff;
     }
 
     /* ====== Links ====== */
     a {
-      color: #00eaff;
+      color: #00ff6a;
       text-decoration: none;
       transition: 0.3s;
     }
@@ -101,7 +101,7 @@
     .quote {
       margin-top: 30px;
       font-style: italic;
-      color: #333;
+      color: #ccc;
       font-size: 1.1em;
     }
 
@@ -214,10 +214,10 @@
     }
 
     function draw() {
-      ctx.fillStyle = "rgba(26, 26, 26, 0.08)"; // fundo escuro suave
+      ctx.fillStyle = "rgba(13, 13, 13, 0.1)"; // fundo bem escuro
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#00eaff"; // cor azul ciano
+      ctx.fillStyle = "#00ff6a"; // verde Matrix
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
