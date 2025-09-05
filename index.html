@@ -70,19 +70,27 @@
       margin: 8px 0;
     }
 
-    ul li::before {
+    /* Áreas em que já atuei → ✔️ verde elegante */
+    .atuacao li::before {
       content: "✔️ ";
-      color: #00ff6a;
+      color: #00cc66;
     }
 
+    /* Sobre mim → lâmpada */
     .sobre li::before {
       content: "💡 ";
       color: #ffdd00;
     }
 
+    /* Contato → pino */
     .contato li::before {
       content: "📌 ";
       color: #ff4aff;
+    }
+
+    /* Formações Acadêmicas → sem marcador */
+    .formacoes li::before {
+      content: "";
     }
 
     /* ====== Links ====== */
@@ -151,7 +159,7 @@
     <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
     <h2>🎯 Áreas em que já atuei</h2>
-    <ul>
+    <ul class="atuacao">
       <li>Graduação & Pós-Graduação (Lato Sensu)</li>
       <li>Coordenação e Gestão de AVA (Moodle)</li>
       <li>Gestão Acadêmica e Pedagógica</li>
@@ -165,7 +173,7 @@
     </ul>
 
     <h2>📘 Formações Acadêmicas</h2>
-    <ul>
+    <ul class="formacoes">
       <li>Bacharel em Ciências da Computação</li>
       <li>📚 Pedagogia</li>
     </ul>
