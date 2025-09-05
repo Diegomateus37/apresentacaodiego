@@ -16,6 +16,7 @@
       text-align: center;
       background: #0d0d0d; /* fundo bem escuro */
       overflow-x: hidden;
+      user-select: none; /* bloqueia seleção de texto via CSS */
     }
 
     /* ====== Container ====== */
@@ -58,6 +59,11 @@
       display: block;
       border: 3px solid #00ff6a;
       box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
+      -webkit-user-drag: none; /* bloqueia arraste da imagem */
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
     }
 
     /* ====== Listas ====== */
@@ -68,12 +74,6 @@
 
     ul li {
       margin: 8px 0;
-    }
-
-    /* Áreas em que já atuei → ✔️ verde elegante */
-    .atuacao li::before {
-      content: "✔️ ";
-      color: #00cc66;
     }
 
     /* Contato → pino */
@@ -193,48 +193,37 @@
     <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
   </div>
 
-  <!-- Script Matrix Personalizada -->
+  <!-- Script Matrix + Alternância Emojis + Proteção -->
   <script>
+    // Bloquear clique direito e seleção de texto
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
+
+    // Script Matrix
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
 
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    // Texto personalizado
     const letters = ["<Diego>", "<Mateus>", "<Educação>", "<TI>"];
     const fontSize = 18;
     const columns = canvas.width / fontSize;
-
-    const drops = [];
-    for (let x = 0; x < columns; x++) {
-      drops[x] = 1;
-    }
+    const drops = Array.from({length: columns}, () => 1);
 
     function draw() {
       ctx.fillStyle = "rgba(13, 13, 13, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#00cc66"; // verde elegante
+      ctx.fillStyle = "#00cc66";
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
         const text = letters[Math.floor(Math.random() * letters.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
+        drops[i] = (drops[i] * fontSize > canvas.height && Math.random() > 0.975) ? 0 : drops[i] + 1;
       }
     }
 
     setInterval(draw, 60);
-
     window.addEventListener("resize", () => {
       canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    });
-  </script>
-</body>
-</html>
