@@ -21,23 +21,26 @@
       overflow-x: hidden;
     }
 
-    /* ====== Emojis nos cantos ====== */
-    .emoji {
+    /* ====== Ícones Neon ====== */
+    .icon {
       position: fixed;
-      font-size: 2.5em;
-      opacity: 0.2;
-      animation: pulse 4s infinite alternate;
+      width: 40px;
+      height: 40px;
+      fill: #00ffc8;
+      opacity: 0.25;
+      filter: drop-shadow(0 0 8px #00ffc8);
+      animation: neonPulse 4s infinite alternate;
       pointer-events: none;
     }
 
-    .emoji.top-left { top: 15px; left: 15px; }
-    .emoji.top-right { top: 15px; right: 15px; }
-    .emoji.bottom-left { bottom: 15px; left: 15px; }
-    .emoji.bottom-right { bottom: 15px; right: 15px; }
+    .top-left { top: 15px; left: 15px; }
+    .top-right { top: 15px; right: 15px; }
+    .bottom-left { bottom: 15px; left: 15px; }
+    .bottom-right { bottom: 15px; right: 15px; }
 
-    @keyframes pulse {
-      from { text-shadow: 0 0 5px #00ffc8; opacity: 0.15; }
-      to { text-shadow: 0 0 20px #00ffc8; opacity: 0.35; }
+    @keyframes neonPulse {
+      from { opacity: 0.15; filter: drop-shadow(0 0 5px #00ffc8); }
+      to { opacity: 0.45; filter: drop-shadow(0 0 15px #00ffc8); }
     }
 
     /* ====== Container ====== */
@@ -155,11 +158,19 @@
   </style>
 </head>
 <body>
-  <!-- Emojis fixos nos cantos -->
-  <div class="emoji top-left">💻</div>
-  <div class="emoji top-right">📚</div>
-  <div class="emoji bottom-left">⚡</div>
-  <div class="emoji bottom-right">🖥️</div>
+  <!-- Ícones SVG neon nos cantos -->
+  <svg class="icon top-left" viewBox="0 0 24 24">
+    <path d="M4 5h16v14H4z"/><path fill="#000" d="M6 7h12v10H6z"/>
+  </svg>
+  <svg class="icon top-right" viewBox="0 0 24 24">
+    <path d="M18 2H6a2 2 0 0 0-2 2v16l4-4h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
+  </svg>
+  <svg class="icon bottom-left" viewBox="0 0 24 24">
+    <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+  </svg>
+  <svg class="icon bottom-right" viewBox="0 0 24 24">
+    <path d="M4 6h16v12H4z"/><path d="M22 4H2v16h20V4zm-2 14H4V6h16v12z"/>
+  </svg>
 
   <div class="container">
     <h1>Olá, eu sou o Diego Mateus 👋</h1>
