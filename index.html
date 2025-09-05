@@ -14,7 +14,7 @@
       justify-content: center;
       align-items: flex-start;
       text-align: center;
-      background: #0d0d0d; /* fundo bem escuro */
+      background: #0d0d0d;
       overflow-x: hidden;
       user-select: none; /* bloqueia seleção de texto via CSS */
     }
@@ -26,11 +26,11 @@
       margin: 20px;
       padding: 30px;
       border-radius: 15px;
-      background: rgba(40, 40, 40, 0.95); /* cinza bem escuro */
+      background: rgba(40, 40, 40, 0.95);
       box-shadow: 0 0 25px rgba(0, 255, 100, 0.25), 0 0 60px rgba(0, 255, 100, 0.15);
       z-index: 1;
       position: relative;
-      color: #f5f5f5; /* texto claro dentro da caixa */
+      color: #f5f5f5;
     }
 
     /* ====== Títulos ====== */
@@ -41,7 +41,7 @@
 
     h1::before {
       content: "</> ";
-      color: #ff006e; /* rosa destaque */
+      color: #ff006e; 
     }
 
     h2 {
@@ -59,7 +59,7 @@
       display: block;
       border: 3px solid #00ff6a;
       box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
-      -webkit-user-drag: none; /* bloqueia arraste da imagem */
+      -webkit-user-drag: none;
       -khtml-user-drag: none;
       -moz-user-drag: none;
       -o-user-drag: none;
@@ -74,11 +74,7 @@
 
     ul li {
       margin: 8px 0;
-    }
-
-    /* Áreas em que já atuei → emojis ⚡ e 🧠 serão inseridos via JS */
-    .atuacao li {
-      color: #00cc66; /* verde elegante */
+      color: #ffffff; /* itens em branco */
     }
 
     /* Contato → pino */
@@ -153,7 +149,10 @@
   <div class="container">
     <h1>Olá, eu sou o Diego Mateus 👋</h1>
 
-    <p><strong>Bacharel em Ciências da Computação</strong> 📚 <strong>Pedagogia</strong></p>
+    <p>
+      👨‍🎓Bacharel em Ciências da Computação<br>
+      📚Licenciatura em Pedagogia
+    </p>
 
     <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
@@ -173,74 +172,11 @@
 
     <h2>📘 Formações Acadêmicas</h2>
     <ul class="formacoes">
-      <li>Bacharel em Ciências da Computação</li>
-      <li>📚 Pedagogia</li>
+      <li>👨‍🎓Bacharel em Ciências da Computação</li>
+      <li>📚Licenciatura em Pedagogia</li>
     </ul>
 
     <h2>💼 Sobre mim</h2>
     <p>Sou Diego Mateus, tenho 22 anos, e transito entre as áreas de exatas e humanas. Desde o início da minha trajetória profissional, atuei em funções voltadas à educação. Meu primeiro emprego foi em suporte de TI, e ao longo do tempo, cresci em diversas funções, todas ligadas ao ensino superior, envolvendo administração, operação, liderança e apoio à criação de estratégias pedagógicas. Sou apaixonado por tecnologia e educação, e acredito que, através da educação, podemos promover transformações significativas.</p>
 
-    <h2>🚀 Atuação Profissional (Ensino Superior)</h2>
-    <ul class="meutrabalho">
-      <li>Mentor Acadêmico</li>
-      <li>Auxílio em TCC, estágios e orientação acadêmica</li>
-      <li>Atuação em apoio pedagógico e suporte em TI</li>
-      <li>Mentoria em projetos acadêmicos</li>
-    </ul>
-    <p><strong>Se tiver interesse algum desses trabalhos, entre em contato no link abaixo 👇</strong></p>
-
-    <h2>📞 Contato</h2>
-    <ul class="contato">
-      <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelo%20GitHub!" target="_blank">Clique aqui</a></li>
-      <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
-    </ul>
-
-    <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
-  </div>
-
-  <!-- Script Matrix + Alternância Emojis + Proteção -->
-  <script>
-    // Bloquear clique direito e seleção de texto
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('selectstart', e => e.preventDefault());
-
-    // Script Matrix
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const letters = ["<Diego>", "<Mateus>", "<Educação>", "<TI>"];
-    const fontSize = 18;
-    const columns = canvas.width / fontSize;
-    const drops = Array.from({length: columns}, () => 1);
-
-    function draw() {
-      ctx.fillStyle = "rgba(13, 13, 13, 0.1)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#00cc66";
-      ctx.font = fontSize + "px monospace";
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        drops[i] = (drops[i] * fontSize > canvas.height && Math.random() > 0.975) ? 0 : drops[i] + 1;
-      }
-    }
-
-    setInterval(draw, 60);
-    window.addEventListener("resize", () => {
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    });
-
-    // Alternar emojis ⚡ e 🧠 na lista de atuação
-    const items = document.querySelectorAll('.atuacao li');
-    const emojis = ['⚡', '🧠'];
-    items.forEach((item, index) => {
-      item.innerHTML = `${emojis[index % emojis.length]} ${item.innerHTML}`;
-    });
-  </script>
-</body>
-</html>
+    <h2>🚀 Atuação Profissional (Ensino Superior
