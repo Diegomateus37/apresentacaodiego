@@ -5,20 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diego Mateus - Apresentação</title>
   <style>
-    /* ====== Body e Fundo ====== */
+    /* ====== Reset ====== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ====== Fundo Matrix ====== */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 20px 0;
+      color: #e0e0e0;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       text-align: center;
-      background: radial-gradient(circle at top, #0f2027, #09141a, #000000);
-      color: #e0e0e0;
+      background: #000;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ====== Container ====== */
+    .container {
+      max-width: 800px;
+      width: 90%;
+      margin: 20px;
+      padding: 30px;
+      border-radius: 15px;
+      background: rgba(20, 20, 20, 0.85);
+      box-shadow: 0 0 25px rgba(0, 255, 200, 0.3), 0 0 60px rgba(0, 255, 150, 0.2);
+      z-index: 1;
       position: relative;
-      overflow-x: hidden;
     }
 
     /* ====== Ícones Neon ====== */
@@ -31,6 +53,7 @@
       filter: drop-shadow(0 0 8px #00ffc8);
       animation: neonPulse 4s infinite alternate;
       pointer-events: none;
+      z-index: 1;
     }
 
     .top-left { top: 15px; left: 15px; }
@@ -41,17 +64,6 @@
     @keyframes neonPulse {
       from { opacity: 0.15; filter: drop-shadow(0 0 5px #00ffc8); }
       to { opacity: 0.45; filter: drop-shadow(0 0 15px #00ffc8); }
-    }
-
-    /* ====== Container ====== */
-    .container {
-      max-width: 800px;
-      width: 90%;
-      padding: 30px;
-      border-radius: 15px;
-      background: rgba(20, 20, 20, 0.85);
-      box-shadow: 0 0 25px rgba(0, 255, 200, 0.3), 0 0 60px rgba(0, 255, 150, 0.2);
-      z-index: 1;
     }
 
     /* ====== Títulos ====== */
@@ -83,34 +95,13 @@
     }
 
     /* ====== Listas ====== */
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
+    ul { list-style: none; padding-left: 0; }
+    ul li { margin: 8px 0; }
 
-    ul li {
-      margin: 8px 0;
-    }
-
-    ul li::before {
-      content: "✔️ ";
-      color: #00ffc8;
-    }
-
-    .sobre li::before {
-      content: "💡 ";
-      color: #ffdd00;
-    }
-
-    .meutrabalho li::before {
-      content: "🚀 ";
-      color: #ff006e;
-    }
-
-    .contato li::before {
-      content: "📌 ";
-      color: #00aaff;
-    }
+    ul li::before { content: "✔️ "; color: #00ffc8; }
+    .sobre li::before { content: "💡 "; color: #ffdd00; }
+    .meutrabalho li::before { content: "🚀 "; color: #ff006e; }
+    .contato li::before { content: "📌 "; color: #00aaff; }
 
     /* ====== Links ====== */
     a {
@@ -118,11 +109,7 @@
       text-decoration: none;
       transition: 0.3s;
     }
-
-    a:hover {
-      color: #ff006e;
-      text-shadow: 0 0 8px #ff006e;
-    }
+    a:hover { color: #ff006e; text-shadow: 0 0 8px #ff006e; }
 
     /* ====== Citação ====== */
     .quote {
@@ -134,31 +121,19 @@
 
     /* ====== Responsividade ====== */
     @media (max-width: 600px) {
-      .container {
-        padding: 20px;
-      }
-
-      img {
-        margin-top: 80px;
-        max-width: 150px;
-      }
-
-      h1 {
-        font-size: 1.8em;
-      }
-
-      h2 {
-        font-size: 1.2em;
-      }
-
-      .quote {
-        font-size: 1em;
-      }
+      .container { padding: 20px; }
+      img { margin-top: 80px; max-width: 150px; }
+      h1 { font-size: 1.8em; }
+      h2 { font-size: 1.2em; }
+      .quote { font-size: 1em; }
     }
   </style>
 </head>
 <body>
-  <!-- Ícones SVG neon nos cantos -->
+  <!-- Canvas Matrix -->
+  <canvas id="matrix"></canvas>
+
+  <!-- Ícones Neon nos cantos -->
   <svg class="icon top-left" viewBox="0 0 24 24">
     <path d="M4 5h16v14H4z"/><path fill="#000" d="M6 7h12v10H6z"/>
   </svg>
@@ -220,5 +195,44 @@
 
     <p class="quote">“Ensinar é transformar conhecimento em oportunidade.”</p>
   </div>
+
+  <!-- Script Matrix -->
+  <script>
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "01<>/\\{}[]#@$%^&*";
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#00ff80";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 40);
+
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
 </body>
 </html>
