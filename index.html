@@ -9,15 +9,13 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #222;
-      margin: 0;
-      padding: 20px 0;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       text-align: center;
       background: #1a1a1a; /* fundo cinza escuro */
-      overflow-x: hidden; /* permite rolagem vertical */
+      overflow-x: hidden;
     }
 
     /* ====== Container ====== */
@@ -27,7 +25,7 @@
       margin: 20px;
       padding: 30px;
       border-radius: 15px;
-      background: rgba(242, 242, 242, 0.95); /* cinza claro translúcido */
+      background: rgba(176, 176, 176, 0.95); /* cinza grafite translúcido */
       box-shadow: 0 0 25px rgba(0, 234, 255, 0.3), 0 0 60px rgba(0, 200, 255, 0.2);
       z-index: 1;
       position: relative;
@@ -36,7 +34,7 @@
 
     /* ====== Títulos ====== */
     h1 {
-      color: #007f99;
+      color: #00eaff;
       font-size: 2.2em;
     }
 
@@ -47,14 +45,14 @@
 
     h2 {
       margin-top: 30px;
-      color: #007f99;
-      border-bottom: 1px solid #ccc;
+      color: #00eaff;
+      border-bottom: 1px solid #333;
       padding-bottom: 6px;
     }
 
     /* ====== Imagem ====== */
     img {
-      margin: 40px auto 20px auto;
+      margin: 60px auto 20px auto;
       border-radius: 50%;
       max-width: 180px;
       display: block;
@@ -74,32 +72,22 @@
 
     ul li::before {
       content: "✔️ ";
-      color: #007f99;
-    }
-
-    .formacao li::before {
-      content: "🎓 ";
-      color: #ff9900;
+      color: #00eaff;
     }
 
     .sobre li::before {
       content: "💡 ";
-      color: #007f99;
-    }
-
-    .meutrabalho li::before {
-      content: "🚀 ";
-      color: #ff006e;
+      color: #ffdd00;
     }
 
     .contato li::before {
       content: "📌 ";
-      color: #007bff;
+      color: #00aaff;
     }
 
     /* ====== Links ====== */
     a {
-      color: #007f99;
+      color: #00eaff;
       text-decoration: none;
       transition: 0.3s;
     }
@@ -117,6 +105,17 @@
       font-size: 1.1em;
     }
 
+    /* ====== Canvas Fundo ====== */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
     /* ====== Responsividade ====== */
     @media (max-width: 600px) {
       .container {
@@ -124,7 +123,7 @@
       }
 
       img {
-        margin-top: 60px;
+        margin-top: 80px;
         max-width: 150px;
       }
 
@@ -140,33 +139,16 @@
         font-size: 1em;
       }
     }
-
-    /* ====== Animação Matrix ====== */
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
   </style>
 </head>
 <body>
-  <!-- Animação Matrix -->
   <canvas id="matrix"></canvas>
-
   <div class="container">
     <h1>Olá, eu sou o Diego Mateus 👋</h1>
 
-    <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
+    <p><strong>🎓 Bacharel em Ciências da Computação</strong> 📚 <strong>Pedagogia</strong></p>
 
-    <h2>📘 Formações Acadêmicas</h2>
-    <ul class="formacao">
-      <li>Bacharel em Ciências da Computação</li>
-      <li>Pedagogia</li>
-    </ul>
+    <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
     <h2>🎯 Áreas em que já atuei</h2>
     <ul>
@@ -176,20 +158,25 @@
       <li>Produção de Conteúdo e Tutoria Educacional</li>
       <li>Secretaria Acadêmica</li>
       <li>Programador de Sistemas de Informação</li>
-      <li>Suporte Técnico em TI</li>
+      <li>Suporte Técnico em TI </li>
       <li>Conhecimento prático em Banco de Dados</li>
       <li>Assistência Técnica em Eletrocomercial e Móveis</li>
       <li>Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
     </ul>
 
+    <h2>📘 Formações Acadêmicas</h2>
+    <ul>
+      <li>Bacharel em Ciências da Computação</li>
+      <li>📚 Pedagogia</li>
+    </ul>
+
     <h2>💼 Sobre mim</h2>
     <ul class="sobre">
-      <li>Professor Particular & Mentor Acadêmico</li>
+      <li>Professor Particular</li>
       <li>Atuação em apoio pedagógico, orientação acadêmica e suporte tecnológico</li>
       <li>TCC | Disciplinas | Estágio</li>
     </ul>
 
-    <!-- Nova Seção -->
     <h2>🚀 Meu Trabalho</h2>
     <ul class="meutrabalho">
       <li>Professor Particular</li>
@@ -197,7 +184,7 @@
       <li>Atuação em apoio pedagógico e suporte em TI</li>
       <li>Mentoria em projetos acadêmicos e profissionais</li>
     </ul>
-    <p><em>Se tiver interesse em conhecer mais ou em algum desses trabalhos, entre em contato no link abaixo 👇</em></p>
+    <p><strong>Se tiver interesse em conhecer mais ou em algum desses trabalhos, entre em contato no link abaixo 👇</strong></p>
 
     <h2>📞 Contato</h2>
     <ul class="contato">
@@ -208,28 +195,33 @@
     <p class="quote">“Ensinar é transformar conhecimento em oportunidade.”</p>
   </div>
 
-  <!-- Script Matrix -->
+  <!-- Script Matrix Personalizada -->
   <script>
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
 
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    const letters = "01";
-    const fontSize = 14;
+    // Texto personalizado
+    const letters = ["<Diego>", "<Mateus>", "<Educação>", "<TI>"];
+    const fontSize = 18;
     const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
+
+    const drops = [];
+    for (let x = 0; x < columns; x++) {
+      drops[x] = 1;
+    }
 
     function draw() {
-      ctx.fillStyle = "rgba(26, 26, 26, 0.08)";
+      ctx.fillStyle = "rgba(26, 26, 26, 0.08)"; // fundo escuro suave
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#00eaff"; // Azul ciano
+      ctx.fillStyle = "#00eaff"; // cor azul ciano
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        const text = letters[Math.floor(Math.random() * letters.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
@@ -239,7 +231,7 @@
       }
     }
 
-    setInterval(draw, 33);
+    setInterval(draw, 60);
 
     window.addEventListener("resize", () => {
       canvas.height = window.innerHeight;
