@@ -76,6 +76,11 @@
       margin: 8px 0;
     }
 
+    /* Áreas em que já atuei → emojis ⚡ e 🧠 serão inseridos via JS */
+    .atuacao li {
+      color: #00cc66; /* verde elegante */
+    }
+
     /* Contato → pino */
     .contato li::before {
       content: "📌 ";
@@ -160,7 +165,7 @@
       <li>Produção de Conteúdo e Tutoria Educacional</li>
       <li>Secretaria Acadêmica</li>
       <li>Programador de Sistemas de Informação</li>
-      <li>Suporte Técnico em TI </li>
+      <li>Suporte Técnico em TI</li>
       <li>Conhecimento prático em Banco de Dados</li>
       <li>Assistência Técnica em Eletrocomercial e Móveis</li>
       <li>Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
@@ -227,3 +232,15 @@
     setInterval(draw, 60);
     window.addEventListener("resize", () => {
       canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+
+    // Alternar emojis ⚡ e 🧠 na lista de atuação
+    const items = document.querySelectorAll('.atuacao li');
+    const emojis = ['⚡', '🧠'];
+    items.forEach((item, index) => {
+      item.innerHTML = `${emojis[index % emojis.length]} ${item.innerHTML}`;
+    });
+  </script>
+</body>
+</html>
