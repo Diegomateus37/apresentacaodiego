@@ -16,7 +16,7 @@
       text-align: center;
       background: #0d0d0d;
       overflow-x: hidden;
-      user-select: none; /* bloqueia seleção de texto via CSS */
+      user-select: none;
     }
 
     /* ====== Container ====== */
@@ -35,13 +35,13 @@
 
     /* ====== Títulos ====== */
     h1 {
-      color: #00ff6a; /* verde Matrix */
+      color: #00ff6a;
       font-size: 2.2em;
     }
 
     h1::before {
       content: "</> ";
-      color: #ff006e; 
+      color: #ff006e;
     }
 
     h2 {
@@ -74,7 +74,7 @@
 
     ul li {
       margin: 8px 0;
-      color: #ffffff; /* itens em branco */
+      color: #ffffff; /* Itens em branco */
     }
 
     /* Contato → pino */
@@ -158,16 +158,16 @@
 
     <h2>🎯 Áreas em que já atuei</h2>
     <ul class="atuacao">
-      <li>Graduação & Pós-Graduação (Lato Sensu)</li>
-      <li>Coordenação e Gestão de AVA (Moodle)</li>
-      <li>Gestão Acadêmica e Pedagógica</li>
-      <li>Produção de Conteúdo e Tutoria Educacional</li>
-      <li>Secretaria Acadêmica</li>
-      <li>Programador de Sistemas de Informação</li>
-      <li>Suporte Técnico em TI</li>
-      <li>Conhecimento prático em Banco de Dados</li>
-      <li>Assistência Técnica em Eletrocomercial e Móveis</li>
-      <li>Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
+      <li>⚡ Graduação & Pós-Graduação (Lato Sensu)</li>
+      <li>🧠 Coordenação e Gestão de AVA (Moodle)</li>
+      <li>⚡ Gestão Acadêmica e Pedagógica</li>
+      <li>🧠 Produção de Conteúdo e Tutoria Educacional</li>
+      <li>⚡ Secretaria Acadêmica</li>
+      <li>🧠 Programador de Sistemas de Informação</li>
+      <li>⚡ Suporte Técnico em TI</li>
+      <li>🧠 Conhecimento prático em Banco de Dados</li>
+      <li>⚡ Assistência Técnica em Eletrocomercial e Móveis</li>
+      <li>🧠 Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
     </ul>
 
     <h2>📘 Formações Acadêmicas</h2>
@@ -179,4 +179,58 @@
     <h2>💼 Sobre mim</h2>
     <p>Sou Diego Mateus, tenho 22 anos, e transito entre as áreas de exatas e humanas. Desde o início da minha trajetória profissional, atuei em funções voltadas à educação. Meu primeiro emprego foi em suporte de TI, e ao longo do tempo, cresci em diversas funções, todas ligadas ao ensino superior, envolvendo administração, operação, liderança e apoio à criação de estratégias pedagógicas. Sou apaixonado por tecnologia e educação, e acredito que, através da educação, podemos promover transformações significativas.</p>
 
-    <h2>🚀 Atuação Profissional (Ensino Superior
+    <h2>🚀 Atuação Profissional (Ensino Superior)</h2>
+    <ul class="meutrabalho">
+      <li>Mentor Acadêmico</li>
+      <li>Auxílio em TCC, estágios e orientação acadêmica</li>
+      <li>Atuação em apoio pedagógico e suporte em TI</li>
+      <li>Mentoria em projetos acadêmicos</li>
+    </ul>
+    <p><strong>Se tiver interesse algum desses trabalhos, entre em contato no link abaixo 👇</strong></p>
+
+    <h2>📞 Contato</h2>
+    <ul class="contato">
+      <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelo%20GitHub!" target="_blank">Clique aqui</a></li>
+      <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
+    </ul>
+
+    <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
+  </div>
+
+  <!-- Script Matrix + Alternância Emojis + Proteção -->
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
+
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = ["<Diego>", "<Mateus>", "<Educação>", "<TI>"];
+    const fontSize = 18;
+    const columns = canvas.width / fontSize;
+    const drops = Array.from({length: columns}, () => 1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(13, 13, 13, 0.1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00cc66";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        drops[i] = (drops[i] * fontSize > canvas.height && Math.random() > 0.975) ? 0 : drops[i] + 1;
+      }
+    }
+
+    setInterval(draw, 60);
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
+</body>
+</html>
