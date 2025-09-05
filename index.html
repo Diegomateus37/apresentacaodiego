@@ -149,25 +149,22 @@
   <div class="container">
     <h1>Olá, eu sou o Diego Mateus 👋</h1>
 
-    <p>
-      👨‍🎓Bacharel em Ciências da Computação<br>
-      📚Licenciatura em Pedagogia
-    </p>
+    <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
 
     <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
     <h2>🎯 Áreas em que já atuei</h2>
     <ul class="atuacao">
-      <li>⚡ Graduação & Pós-Graduação (Lato Sensu)</li>
-      <li>🧠 Coordenação e Gestão de AVA (Moodle)</li>
-      <li>⚡ Gestão Acadêmica e Pedagógica</li>
-      <li>🧠 Produção de Conteúdo e Tutoria Educacional</li>
-      <li>⚡ Secretaria Acadêmica</li>
-      <li>🧠 Programador de Sistemas de Informação</li>
-      <li>⚡ Suporte Técnico em TI</li>
-      <li>🧠 Conhecimento prático em Banco de Dados</li>
-      <li>⚡ Assistência Técnica em Eletrocomercial e Móveis</li>
-      <li>🧠 Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
+      <li>Graduação & Pós-Graduação (Lato Sensu)</li>
+      <li>Coordenação e Gestão de AVA (Moodle)</li>
+      <li>Gestão Acadêmica e Pedagógica</li>
+      <li>Produção de Conteúdo e Tutoria Educacional</li>
+      <li>Secretaria Acadêmica</li>
+      <li>Programador de Sistemas de Informação</li>
+      <li>Suporte Técnico em TI</li>
+      <li>Conhecimento prático em Banco de Dados</li>
+      <li>Assistência Técnica em Eletrocomercial e Móveis</li>
+      <li>Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
     </ul>
 
     <h2>📘 Formações Acadêmicas</h2>
@@ -230,6 +227,13 @@
     window.addEventListener("resize", () => {
       canvas.height = window.innerHeight;
       canvas.width = window.innerWidth;
+    });
+
+    // Alternância automática de emojis ⚡ e 🧠
+    const items = document.querySelectorAll('.atuacao li');
+    const emojis = ['⚡', '🧠'];
+    items.forEach((item, index) => {
+      item.innerHTML = `${emojis[index % emojis.length]} ${item.innerHTML}`;
     });
   </script>
 </body>
