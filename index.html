@@ -5,29 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diego Mateus - Apresentação</title>
   <style>
-    /* ====== Reset ====== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    /* ====== Fundo Matrix ====== */
+    /* ====== Body e Fundo ====== */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #e0e0e0;
+      color: #222;
+      margin: 0;
+      padding: 20px 0;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       text-align: center;
-      background: #000;
-      overflow: hidden;
-    }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
+      background: #1a1a1a; /* fundo cinza escuro */
+      overflow-x: hidden; /* permite rolagem vertical */
     }
 
     /* ====== Container ====== */
@@ -37,38 +27,16 @@
       margin: 20px;
       padding: 30px;
       border-radius: 15px;
-      background: rgba(20, 20, 20, 0.85);
+      background: rgba(255, 255, 255, 0.9); /* caixa clara translúcida */
       box-shadow: 0 0 25px rgba(0, 255, 200, 0.3), 0 0 60px rgba(0, 255, 150, 0.2);
       z-index: 1;
       position: relative;
-    }
-
-    /* ====== Ícones Neon ====== */
-    .icon {
-      position: fixed;
-      width: 40px;
-      height: 40px;
-      fill: #00ffc8;
-      opacity: 0.25;
-      filter: drop-shadow(0 0 8px #00ffc8);
-      animation: neonPulse 4s infinite alternate;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .top-left { top: 15px; left: 15px; }
-    .top-right { top: 15px; right: 15px; }
-    .bottom-left { bottom: 15px; left: 15px; }
-    .bottom-right { bottom: 15px; right: 15px; }
-
-    @keyframes neonPulse {
-      from { opacity: 0.15; filter: drop-shadow(0 0 5px #00ffc8); }
-      to { opacity: 0.45; filter: drop-shadow(0 0 15px #00ffc8); }
+      color: #000; /* texto escuro dentro da caixa */
     }
 
     /* ====== Títulos ====== */
     h1 {
-      color: #00ffc8;
+      color: #007f66;
       font-size: 2.2em;
     }
 
@@ -79,14 +47,14 @@
 
     h2 {
       margin-top: 30px;
-      color: #00ffc8;
-      border-bottom: 1px solid #333;
+      color: #007f66;
+      border-bottom: 1px solid #ccc;
       padding-bottom: 6px;
     }
 
     /* ====== Imagem ====== */
     img {
-      margin: 60px auto 20px auto;
+      margin: 40px auto 20px auto;
       border-radius: 50%;
       max-width: 180px;
       display: block;
@@ -95,62 +63,99 @@
     }
 
     /* ====== Listas ====== */
-    ul { list-style: none; padding-left: 0; }
-    ul li { margin: 8px 0; }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
 
-    ul li::before { content: "✔️ "; color: #00ffc8; }
-    .sobre li::before { content: "💡 "; color: #ffdd00; }
-    .meutrabalho li::before { content: "🚀 "; color: #ff006e; }
-    .contato li::before { content: "📌 "; color: #00aaff; }
+    ul li {
+      margin: 8px 0;
+    }
+
+    ul li::before {
+      content: "✔️ ";
+      color: #007f66;
+    }
+
+    .sobre li::before {
+      content: "💡 ";
+      color: #ff9900;
+    }
+
+    .meutrabalho li::before {
+      content: "🚀 ";
+      color: #ff006e;
+    }
+
+    .contato li::before {
+      content: "📌 ";
+      color: #007bff;
+    }
 
     /* ====== Links ====== */
     a {
-      color: #00ffc8;
+      color: #007f66;
       text-decoration: none;
       transition: 0.3s;
     }
-    a:hover { color: #ff006e; text-shadow: 0 0 8px #ff006e; }
+
+    a:hover {
+      color: #ff006e;
+      text-shadow: 0 0 8px #ff006e;
+    }
 
     /* ====== Citação ====== */
     .quote {
       margin-top: 30px;
       font-style: italic;
-      color: #bbb;
+      color: #333;
       font-size: 1.1em;
     }
 
     /* ====== Responsividade ====== */
     @media (max-width: 600px) {
-      .container { padding: 20px; }
-      img { margin-top: 80px; max-width: 150px; }
-      h1 { font-size: 1.8em; }
-      h2 { font-size: 1.2em; }
-      .quote { font-size: 1em; }
+      .container {
+        padding: 20px;
+      }
+
+      img {
+        margin-top: 60px;
+        max-width: 150px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.2em;
+      }
+
+      .quote {
+        font-size: 1em;
+      }
+    }
+
+    /* ====== Animação Matrix ====== */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <!-- Canvas Matrix -->
+  <!-- Animação Matrix -->
   <canvas id="matrix"></canvas>
-
-  <!-- Ícones Neon nos cantos -->
-  <svg class="icon top-left" viewBox="0 0 24 24">
-    <path d="M4 5h16v14H4z"/><path fill="#000" d="M6 7h12v10H6z"/>
-  </svg>
-  <svg class="icon top-right" viewBox="0 0 24 24">
-    <path d="M18 2H6a2 2 0 0 0-2 2v16l4-4h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
-  </svg>
-  <svg class="icon bottom-left" viewBox="0 0 24 24">
-    <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
-  </svg>
-  <svg class="icon bottom-right" viewBox="0 0 24 24">
-    <path d="M4 6h16v12H4z"/><path d="M22 4H2v16h20V4zm-2 14H4V6h16v12z"/>
-  </svg>
 
   <div class="container">
     <h1>Olá, eu sou o Diego Mateus 👋</h1>
 
-    <p><strong>🎓Bacharel em Ciências da Computação</strong> 📚 <strong>Pedagogia</strong></p>
+    <p><strong>🎓 Bacharel em Ciências da Computação</strong> 📚 <strong>Pedagogia</strong></p>
 
     <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
@@ -204,16 +209,16 @@
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    const letters = "01<>/\\{}[]#@$%^&*";
+    const letters = "01";
     const fontSize = 14;
     const columns = canvas.width / fontSize;
     const drops = Array(Math.floor(columns)).fill(1);
 
     function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.fillStyle = "rgba(26, 26, 26, 0.08)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#00ff80";
+      ctx.fillStyle = "#00ff66";
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
@@ -227,7 +232,7 @@
       }
     }
 
-    setInterval(draw, 40);
+    setInterval(draw, 33);
 
     window.addEventListener("resize", () => {
       canvas.height = window.innerHeight;
