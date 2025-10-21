@@ -148,6 +148,32 @@
       .quote {
         font-size: 1em;
       }
+      .quote-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 30px;
+}
+
+.quote-container img {
+  position: absolute;
+  top: -50px; /* ajusta verticalmente a posição da imagem */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px; /* ajuste o tamanho como preferir */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
+  z-index: 2;
+}
+
+.quote-container .quote {
+  position: relative;
+  z-index: 1;
+  margin-top: 60px; /* cria espaço para a imagem */
+  font-style: italic;
+  color: #ccc;
+  font-size: 1.1em;
+}
+
     }
   </style>
 </head>
@@ -155,12 +181,7 @@
 
   <canvas id="matrix"></canvas>
 
-  <div class="layout">
-    <!-- LADO ESQUERDO -->
-    <div class="imagem-lateral">
-      <img src="menino-gamer.png" alt="Menino gamer computador">
-    </div>
-
+  
   <canvas id="matrix"></canvas>
   <div class="container">
     <h1>Olá, eu sou o Diego Mateus <span class="hand">👋</span></h1>
@@ -214,6 +235,10 @@
       <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelos%20canais%20digitais!" target="_blank">Clique aqui</a></li>
       <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
     </ul>
+      <div class="quote-container">
+  <img src="menino-gamer.png" alt="Menino Gamer">
+  <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
+</div>
 
     <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
   </div>
