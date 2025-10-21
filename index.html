@@ -5,152 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diego Mateus - Apresentação</title>
   <style>
-    /* === ESTILO BASE === */
     body {
-      font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
-      color: #e6faff;
-      background: radial-gradient(circle at top, #0b132b, #000);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #eaeaea;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 40px 10px;
+      text-align: center;
+      background: #0d0d0d;
       overflow-x: hidden;
       user-select: none;
     }
 
     .container {
-      max-width: 850px;
-      width: 95%;
-      background: rgba(20, 25, 45, 0.85);
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
-      padding: 35px;
-      text-align: center;
-      position: relative;
+      max-width: 800px;
+      width: 90%;
+      margin: 20px;
+      padding: 30px;
+      border-radius: 15px;
+      background: rgba(40, 40, 40, 0.95);
+      box-shadow: 0 0 25px rgba(0, 255, 100, 0.25), 0 0 60px rgba(0, 255, 100, 0.15);
       z-index: 1;
-      backdrop-filter: blur(8px);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      color: #f5f5f5;
     }
 
-    .container:hover {
-      transform: scale(1.01);
-      box-shadow: 0 0 50px rgba(0, 255, 255, 0.25);
-    }
-
-    /* === LOGO LATERAL === */
-    .logo-lateral {
-      position: absolute;
-      right: -90px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 160px;
-      opacity: 0.95;
-      filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
-
-    .logo-lateral:hover {
-      transform: translateY(-50%) scale(1.05);
-      opacity: 1;
-    }
-
-    /* === CABEÇALHO === */
     h1 {
-      color: #00eaff;
-      font-size: 2.3em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      text-shadow: 0 0 14px #00eaff;
+      color: #00ff6a;
+      font-size: 2.2em;
     }
 
     h1::before {
-      content: "</>";
-      color: #ff0095;
-      text-shadow: 0 0 12px #ff0095;
+      content: "</> ";
+      color: #ff006e;
     }
 
+    /* 👋 Animação da mão acenando */
     .hand {
       display: inline-block;
+      animation: wave 2s infinite ease-in-out;
       transform-origin: 70% 70%;
-      animation: smoothWave 3s infinite ease-in-out;
-      font-size: 1.4em;
-      filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
+      font-size: 1.2em;
     }
 
-    @keyframes smoothWave {
-      0%, 100% { transform: rotate(0deg); }
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
       10% { transform: rotate(14deg); }
-      20% { transform: rotate(-10deg); }
-      30% { transform: rotate(12deg); }
-      40% { transform: rotate(-6deg); }
-      50% { transform: rotate(8deg); }
-      60% { transform: rotate(-3deg); }
-      80% { transform: rotate(4deg); }
+      20% { transform: rotate(-8deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+      60%, 100% { transform: rotate(0deg); }
     }
 
-    /* === IMAGEM DE PERFIL === */
-    img.perfil {
-      margin: 40px auto 20px;
+    h2 {
+      margin-top: 30px;
+      color: #00ff6a;
+      border-bottom: 1px solid #555;
+      padding-bottom: 6px;
+    }
+
+    img {
+      margin: 60px auto 20px auto;
       border-radius: 50%;
       max-width: 180px;
       display: block;
-      border: 3px solid #00eaff;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    img.perfil:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
-    }
-
-    /* === SEÇÕES === */
-    h2 {
-      color: #00eaff;
-      margin-top: 35px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      padding-bottom: 6px;
-      text-shadow: 0 0 10px #00eaff;
+      border: 3px solid #00ff6a;
+      box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
     }
 
     ul {
       list-style: none;
-      padding: 0;
+      padding-left: 0;
     }
 
     ul li {
-      margin: 10px 0;
-      color: #f5faff;
-      font-weight: 400;
+      margin: 8px 0;
+      color: #ffffff;
     }
 
     .contato li::before {
       content: "📌 ";
-      color: #ff00ff;
+      color: #ff4aff;
+    }
+
+    .formacoes li::before {
+      content: "";
     }
 
     a {
-      color: #00eaff;
+      color: #00ff6a;
       text-decoration: none;
-      font-weight: 500;
       transition: 0.3s;
     }
 
     a:hover {
-      color: #ff00a0;
-      text-shadow: 0 0 8px #ff00a0;
+      color: #ff006e;
+      text-shadow: 0 0 8px #ff006e;
     }
 
     .quote {
       margin-top: 30px;
       font-style: italic;
-      color: #ccecff;
+      color: #ccc;
       font-size: 1.1em;
-      opacity: 0.9;
     }
 
     canvas {
@@ -163,57 +127,78 @@
       pointer-events: none;
     }
 
-    /* === RESPONSIVIDADE === */
-    @media (max-width: 800px) {
-      .logo-lateral {
-        display: none;
-      }
-    }
-
     @media (max-width: 600px) {
-      .container { padding: 25px; }
-      img.perfil { margin-top: 60px; max-width: 150px; }
-      h1 { font-size: 1.8em; }
-      h2 { font-size: 1.2em; }
+      .container {
+        padding: 20px;
+      }
+
+      img {
+        margin-top: 80px;
+        max-width: 150px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.2em;
+      }
+
+      .quote {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
-
 <body>
   <canvas id="matrix"></canvas>
-
   <div class="container">
-    <img src="menino-gamer.png" alt="Logo Menino Gamer" class="logo-lateral">
-    
     <h1>Olá, eu sou o Diego Mateus <span class="hand">👋</span></h1>
     <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
-    
-    <img src="Diego img .jpeg" alt="Apresentação Diego Mateus" class="perfil">
+    <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
-    <h2>🎯 Áreas de Atuação</h2>
-    <ul>
-      <li>💻 Programador & Suporte Técnico</li>
-      <li>🎓 Coordenação e Gestão de AVA (Moodle)</li>
-      <li>📊 Gestão Acadêmica e Pedagógica</li>
-      <li>🧠 Produção de Conteúdo Educacional</li>
-      <li>🏫 Supervisão e Tutoria no Ensino Superior</li>
+    <h2>🎯 Algumas das áreas em que já atuei</h2>
+    <ul class="atuacao">
+      <li>⚡ Graduação & Pós-Graduação (Lato Sensu)</li>
+      <li>⚡ Coordenação e Gestão de AVA (Moodle)</li>
+      <li>⚡ Gestão Acadêmica e Pedagógica</li>
+      <li>⚡ Produção de Conteúdo e Tutoria Educacional</li>
+      <li>⚡ Secretaria Acadêmica</li>
+      <li>⚡ Programador de Sistemas de Informação</li>
+      <li>⚡ Suporte Técnico em TI</li>
+      <li>⚡ Conhecimento prático em Banco de Dados</li>
+      <li>⚡ Assistência Técnica em Eletrocomercial e Móveis</li>
+      <li>⚡ Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
     </ul>
 
     <h2>📘 Formações Acadêmicas</h2>
-    <ul>
+    <ul class="formacoes">
       <li>👨‍🎓 Bacharel em Ciências da Computação</li>
       <li>📚 Licenciatura em Pedagogia</li>
-      <li🔹 Especialização em Docência no Ensino Superior</li>
-      <li🔹 Especialização em Gestão da TI e Estratégia Empresarial</li>
-      <li🔹 Especialização em Orientação, Supervisão e Inspeção Escolar</li>
+      <ul>
+        <li>🔹 Especialização em Docência no Ensino Superior</li>
+        <li>🔹 Especialização em Orientação, Supervisão e Inspeção Escolar</li>
+        <li>🔹 Especialização em Gestão da Tecnologia da Informação nas Organizações</li>
+      </ul>
+
+      <li><strong>🎓 Pós-Graduação em andamento:</strong></li>
+      <ul>
+        <li>🔹 MBA em Gestão de Estratégia Empresarial</li>
+      </ul>
     </ul>
 
-      <h2>📘 Pós-graduação em andamento</h2>
-       <li🔹 MBA - Gestão em Estratégia Empresarial </li>
-    <ul>
-
     <h2>💼 Sobre mim</h2>
-    <p>22 anos, apaixonado por tecnologia e educação. Minha trajetória une exatas e humanas, com experiência em TI, gestão acadêmica e metodologias pedagógicas. Acredito no poder da educação como ferramenta de transformação social e digital.</p>
+    <p>22 anos, apaixonado por tecnologia e educação. Minha trajetória une exatas e humanas, com experiência em TI, gestão acadêmica e estratégias pedagógicas no ensino superior. Acredito no poder transformador da educação como caminho para gerar impacto real.</p>
+
+    <h2>🚀 Atuação Profissional (Ensino Superior)</h2>
+    <ul class="meutrabalho">
+      <li>👨‍🏫 Mentor Acadêmico</li>
+      <li>👨‍🏫 Auxílio em TCC, estágios e orientação acadêmica</li>
+      <li>👨‍🏫 Atuação em apoio pedagógico e suporte em TI</li>
+      <li>👨‍🏫 Mentoria em projetos acadêmicos</li>
+    </ul>
+    <p><strong>Se tiver interesse em algum desses trabalhos, entre em contato no link abaixo 👇</strong></p>
 
     <h2>📞 Contato</h2>
     <ul class="contato">
@@ -225,32 +210,39 @@
   </div>
 
   <script>
+    // Proteção: desativar clique direito e seleção de texto
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('selectstart', e => e.preventDefault());
 
-    // Efeito Matrix
+    // Canvas Matrix
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    const letters = ["<Diego>", "<Mateus>", "<Educação>", "<TI>", "</>"];
+    const letters = ["<Diego>", "<Mateus>", "<Educação>", "<TI>"];
     const fontSize = 18;
     const columns = canvas.width / fontSize;
-    const drops = Array.from({ length: columns }, () => 1);
+    const drops = Array.from({length: columns}, () => 1);
 
     function draw() {
-      ctx.fillStyle = "rgba(10, 20, 40, 0.1)";
+      ctx.fillStyle = "rgba(13, 13, 13, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#00eaff";
+      ctx.fillStyle = "#00cc66";
       ctx.font = fontSize + "px monospace";
+
       for (let i = 0; i < drops.length; i++) {
         const text = letters[Math.floor(Math.random() * letters.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
         drops[i] = (drops[i] * fontSize > canvas.height && Math.random() > 0.975) ? 0 : drops[i] + 1;
       }
     }
+
     setInterval(draw, 60);
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
   </script>
 </body>
 </html>
