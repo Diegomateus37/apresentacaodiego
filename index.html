@@ -1,96 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diego Mateus - Apresentação</title>
   <style>
-    /* === ESTILO GERAL === */
+    /* === ESTILO BASE === */
     body {
-      margin: 0;
-      font-family: 'Poppins', 'Segoe UI', sans-serif;
-      color: #e8f7ff;
-      background: radial-gradient(circle at top left, #0a0f2c 20%, #000);
+      font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+      color: #e6faff;
+      background: radial-gradient(circle at top, #0b132b, #000);
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+      padding: 40px 10px;
       overflow-x: hidden;
+      user-select: none;
     }
 
-    canvas#matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .layout {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
+    .container {
+      max-width: 850px;
       width: 95%;
-      max-width: 1200px;
+      background: rgba(20, 25, 45, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
+      padding: 35px;
+      text-align: center;
       position: relative;
       z-index: 1;
-      padding: 40px;
-    }
-
-    /* === IMAGEM LATERAL === */
-    .imagem-lateral {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .imagem-lateral img {
-      max-width: 340px;
-      border-radius: 20px;
-      box-shadow: 0 0 35px rgba(0, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .imagem-lateral img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 45px rgba(136, 64, 255, 0.5);
+    .container:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 50px rgba(0, 255, 255, 0.25);
     }
 
-    /* === CONTEÚDO === */
-    .conteudo {
-      flex: 1.2;
-      background: rgba(20, 25, 45, 0.85);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
+    /* === LOGO LATERAL === */
+    .logo-lateral {
+      position: absolute;
+      right: -90px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 160px;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+      transition: transform 0.4s ease, opacity 0.4s ease;
     }
 
+    .logo-lateral:hover {
+      transform: translateY(-50%) scale(1.05);
+      opacity: 1;
+    }
+
+    /* === CABEÇALHO === */
     h1 {
-      color: #00f0ff;
+      color: #00eaff;
       font-size: 2.3em;
-      text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
       display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      text-shadow: 0 0 14px #00eaff;
     }
 
     h1::before {
       content: "</>";
-      color: #9c4dff;
-      text-shadow: 0 0 8px rgba(156, 77, 255, 0.8);
+      color: #ff0095;
+      text-shadow: 0 0 12px #ff0095;
     }
 
     .hand {
       display: inline-block;
       transform-origin: 70% 70%;
       animation: smoothWave 3s infinite ease-in-out;
+      font-size: 1.4em;
+      filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
     }
 
     @keyframes smoothWave {
@@ -104,13 +92,29 @@
       80% { transform: rotate(4deg); }
     }
 
+    /* === IMAGEM DE PERFIL === */
+    img.perfil {
+      margin: 40px auto 20px;
+      border-radius: 50%;
+      max-width: 180px;
+      display: block;
+      border: 3px solid #00eaff;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    img.perfil:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
+    }
+
+    /* === SEÇÕES === */
     h2 {
-      color: #00f0ff;
-      margin-top: 30px;
+      color: #00eaff;
+      margin-top: 35px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       padding-bottom: 6px;
-      font-size: 1.3em;
-      text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+      text-shadow: 0 0 10px #00eaff;
     }
 
     ul {
@@ -119,8 +123,14 @@
     }
 
     ul li {
-      margin: 8px 0;
-      color: #eafaff;
+      margin: 10px 0;
+      color: #f5faff;
+      font-weight: 400;
+    }
+
+    .contato li::before {
+      content: "📌 ";
+      color: #ff00ff;
     }
 
     a {
@@ -131,103 +141,89 @@
     }
 
     a:hover {
-      color: #9c4dff;
-      text-shadow: 0 0 8px #9c4dff;
+      color: #ff00a0;
+      text-shadow: 0 0 8px #ff00a0;
     }
 
     .quote {
       margin-top: 30px;
       font-style: italic;
       color: #ccecff;
-      font-size: 1.05em;
+      font-size: 1.1em;
+      opacity: 0.9;
     }
 
-    /* === IMAGEM INFERIOR === */
-    .imagem-inferior {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
 
-    .imagem-inferior img {
-      max-width: 250px;
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(156, 77, 255, 0.4);
-      transition: 0.4s;
-    }
-
-    .imagem-inferior img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(0, 240, 255, 0.5);
-    }
-
-    /* === RESPONSIVO === */
-    @media (max-width: 900px) {
-      .layout {
-        flex-direction: column;
-        padding: 25px;
+    /* === RESPONSIVIDADE === */
+    @media (max-width: 800px) {
+      .logo-lateral {
+        display: none;
       }
+    }
 
-      .imagem-lateral img {
-        max-width: 250px;
-      }
-
-      h1 {
-        font-size: 1.9em;
-      }
+    @media (max-width: 600px) {
+      .container { padding: 25px; }
+      img.perfil { margin-top: 60px; max-width: 150px; }
+      h1 { font-size: 1.8em; }
+      h2 { font-size: 1.2em; }
     }
   </style>
 </head>
+
 <body>
   <canvas id="matrix"></canvas>
 
-  <div class="layout">
-    <!-- LADO ESQUERDO -->
-    <div class="imagem-lateral">
-      <img src="menino-gamer.png" alt="Menino gamer computador">
-    </div>
+  <div class="container">
+    <img src="menino-gamer.png" alt="Logo Menino Gamer" class="logo-lateral">
+    
+    <h1>Olá, eu sou o Diego Mateus <span class="hand">👋</span></h1>
+    <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
+    
+    <img src="Diego img .jpeg" alt="Apresentação Diego Mateus" class="perfil">
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div class="conteudo">
-      <h1>Olá, eu sou o Diego Mateus <span class="hand">👋</span></h1>
-      <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
+    <h2>🎯 Áreas de Atuação</h2>
+    <ul>
+      <li>💻 Programador & Suporte Técnico</li>
+      <li>🎓 Coordenação e Gestão de AVA (Moodle)</li>
+      <li>📊 Gestão Acadêmica e Pedagógica</li>
+      <li>🧠 Produção de Conteúdo Educacional</li>
+      <li>🏫 Supervisão e Tutoria no Ensino Superior</li>
+    </ul>
 
-      <h2>🎯 Áreas de Atuação</h2>
-      <ul>
-        <li>💻 Programador & Suporte Técnico</li>
-        <li>🎓 Coordenação e Gestão de AVA (Moodle)</li>
-        <li>📊 Gestão Acadêmica e Pedagógica</li>
-        <li>🧠 Produção de Conteúdo Educacional</li>
-        <li>🏫 Supervisão e Tutoria no Ensino Superior</li>
-      </ul>
+    <h2>📘 Formações Acadêmicas</h2>
+    <ul>
+      <li>👨‍🎓 Bacharel em Ciências da Computação</li>
+      <li>📚 Licenciatura em Pedagogia</li>
+      <li>🎓 Pós em Docência no Ensino Superior</li>
+      <li>🎓 Pós em Gestão da TI e Estratégia Empresarial</li>
+    </ul>
 
-      <h2>📘 Formações Acadêmicas</h2>
-      <ul>
-        <li>👨‍🎓 Bacharel em Ciências da Computação</li>
-        <li>📚 Licenciatura em Pedagogia</li>
-        <li>🎓 Pós em Docência no Ensino Superior</li>
-        <li>🎓 Pós em Gestão da TI e Estratégia Empresarial</li>
-      </ul>
+    <h2>💼 Sobre mim</h2>
+    <p>22 anos, apaixonado por tecnologia e educação. Minha trajetória une exatas e humanas, com experiência em TI, gestão acadêmica e metodologias pedagógicas. Acredito no poder da educação como ferramenta de transformação social e digital.</p>
 
-      <h2>💼 Sobre mim</h2>
-      <p>22 anos, apaixonado por tecnologia e educação. Minha trajetória une exatas e humanas, com experiência em TI, gestão acadêmica e metodologias pedagógicas. Acredito no poder da educação como ferramenta de transformação social e digital.</p>
+    <h2>📞 Contato</h2>
+    <ul class="contato">
+      <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelos%20canais%20digitais!" target="_blank">Clique aqui</a></li>
+      <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
+    </ul>
 
-      <h2>📞 Contato</h2>
-      <ul>
-        <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelos%20canais%20digitais!" target="_blank">Clique aqui</a></li>
-        <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
-      </ul>
-
-      <div class="imagem-inferior">
-        <img src="menino-gamer.png" alt="Logo Diego Mateus - menino gamer">
-      </div>
-
-      <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
-    </div>
+    <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
   </div>
 
   <script>
-    // === EFEITO MATRIX ===
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
+
+    // Efeito Matrix
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     canvas.height = window.innerHeight;
@@ -243,19 +239,13 @@
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "#00eaff";
       ctx.font = fontSize + "px monospace";
-
       for (let i = 0; i < drops.length; i++) {
         const text = letters[Math.floor(Math.random() * letters.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
         drops[i] = (drops[i] * fontSize > canvas.height && Math.random() > 0.975) ? 0 : drops[i] + 1;
       }
     }
-
     setInterval(draw, 60);
-    window.addEventListener("resize", () => {
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    });
   </script>
 </body>
 </html>
