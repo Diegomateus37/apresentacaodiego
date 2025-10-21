@@ -1,80 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diego Mateus - Apresentação</title>
   <style>
-    /* === ESTILO BASE === */
+    /* === ESTILO GERAL === */
     body {
-      font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
-      color: #e6faff;
-      background: radial-gradient(circle at top, #0b132b, #000);
+      margin: 0;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      color: #e8f7ff;
+      background: radial-gradient(circle at top left, #0a0f2c 20%, #000);
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      padding: 40px 10px;
+      align-items: center;
       overflow-x: hidden;
-      user-select: none;
     }
 
-    .container {
-      max-width: 850px;
+    canvas#matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
       width: 95%;
-      background: rgba(20, 25, 45, 0.85);
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
-      padding: 35px;
-      text-align: center;
+      max-width: 1200px;
       position: relative;
       z-index: 1;
-      backdrop-filter: blur(8px);
+      padding: 40px;
+    }
+
+    /* === IMAGEM LATERAL === */
+    .imagem-lateral {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .imagem-lateral img {
+      max-width: 340px;
+      border-radius: 20px;
+      box-shadow: 0 0 35px rgba(0, 255, 255, 0.3);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .container:hover {
-      transform: scale(1.01);
-      box-shadow: 0 0 50px rgba(0, 255, 255, 0.25);
+    .imagem-lateral img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 45px rgba(136, 64, 255, 0.5);
     }
 
-    /* === CABEÇALHO === */
-    .logo {
-      width: 110px;
-      margin: 10px auto 25px;
-      filter: drop-shadow(0 0 8px rgba(0, 255, 200, 0.4));
-      animation: floatLogo 4s ease-in-out infinite;
-    }
-
-    @keyframes floatLogo {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+    /* === CONTEÚDO === */
+    .conteudo {
+      flex: 1.2;
+      background: rgba(20, 25, 45, 0.85);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
     }
 
     h1 {
       color: #00f0ff;
       font-size: 2.3em;
+      text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      text-shadow: 0 0 12px #00f0ff;
+      justify-content: center;
     }
 
     h1::before {
       content: "</>";
-      color: #ff00a0;
-      text-shadow: 0 0 10px #ff00a0;
+      color: #9c4dff;
+      text-shadow: 0 0 8px rgba(156, 77, 255, 0.8);
     }
 
-    /* 👋 Mão animada e refinada */
     .hand {
       display: inline-block;
       transform-origin: 70% 70%;
       animation: smoothWave 3s infinite ease-in-out;
-      font-size: 1.4em;
-      filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
     }
 
     @keyframes smoothWave {
@@ -88,29 +104,13 @@
       80% { transform: rotate(4deg); }
     }
 
-    /* === IMAGEM DE PERFIL === */
-    img {
-      margin: 40px auto 20px;
-      border-radius: 50%;
-      max-width: 180px;
-      display: block;
-      border: 3px solid #00f0ff;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    img:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
-    }
-
-    /* === SEÇÕES === */
     h2 {
       color: #00f0ff;
-      margin-top: 35px;
+      margin-top: 30px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       padding-bottom: 6px;
-      text-shadow: 0 0 10px #00f0ff;
+      font-size: 1.3em;
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
     }
 
     ul {
@@ -119,14 +119,8 @@
     }
 
     ul li {
-      margin: 10px 0;
-      color: #f5faff;
-      font-weight: 400;
-    }
-
-    .contato li::before {
-      content: "📌 ";
-      color: #ff00ff;
+      margin: 8px 0;
+      color: #eafaff;
     }
 
     a {
@@ -137,100 +131,103 @@
     }
 
     a:hover {
-      color: #ff00a0;
-      text-shadow: 0 0 8px #ff00a0;
+      color: #9c4dff;
+      text-shadow: 0 0 8px #9c4dff;
     }
 
     .quote {
       margin-top: 30px;
       font-style: italic;
       color: #ccecff;
-      font-size: 1.1em;
-      opacity: 0.9;
+      font-size: 1.05em;
     }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
+    /* === IMAGEM INFERIOR === */
+    .imagem-inferior {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
     }
 
-    /* === RESPONSIVIDADE === */
-    @media (max-width: 600px) {
-      .container {
+    .imagem-inferior img {
+      max-width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(156, 77, 255, 0.4);
+      transition: 0.4s;
+    }
+
+    .imagem-inferior img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.5);
+    }
+
+    /* === RESPONSIVO === */
+    @media (max-width: 900px) {
+      .layout {
+        flex-direction: column;
         padding: 25px;
       }
 
-      img {
-        margin-top: 60px;
-        max-width: 150px;
+      .imagem-lateral img {
+        max-width: 250px;
       }
 
       h1 {
-        font-size: 1.8em;
-      }
-
-      h2 {
-        font-size: 1.2em;
+        font-size: 1.9em;
       }
     }
   </style>
 </head>
 <body>
   <canvas id="matrix"></canvas>
-  <div class="container">
-    <!-- LOGO ESTILIZADA: menino, livro e computador -->
-    <svg class="logo" viewBox="0 0 512 512">
-      <path fill="#00f0ff" d="M256 16a240 240 0 1 0 0 480 240 240 0 0 0 0-480zm0 440a200 200 0 1 1 0-400 200 200 0 0 1 0 400z"/>
-      <circle cx="256" cy="190" r="60" fill="#ff00a0"/>
-      <rect x="180" y="270" width="150" height="80" rx="10" fill="#00eaff"/>
-      <rect x="210" y="360" width="90" height="15" rx="3" fill="#00eaff"/>
-      <rect x="155" y="385" width="200" height="20" rx="5" fill="#00f0ff"/>
-    </svg>
 
-    <h1>Olá, eu sou o Diego Mateus <span class="hand">👋</span></h1>
-    <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
-    <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
+  <div class="layout">
+    <!-- LADO ESQUERDO -->
+    <div class="imagem-lateral">
+      <img src="menino-gamer.png" alt="Menino gamer computador">
+    </div>
 
-    <h2>🎯 Áreas de Atuação</h2>
-    <ul>
-      <li>💻 Programador & Suporte Técnico</li>
-      <li>🎓 Coordenação e Gestão de AVA (Moodle)</li>
-      <li>📊 Gestão Acadêmica e Pedagógica</li>
-      <li>🧠 Produção de Conteúdo Educacional</li>
-      <li>🏫 Supervisão e Tutoria no Ensino Superior</li>
-    </ul>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="conteudo">
+      <h1>Olá, eu sou o Diego Mateus <span class="hand">👋</span></h1>
+      <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
 
-    <h2>📘 Formações Acadêmicas</h2>
-    <ul>
-      <li>👨‍🎓 Bacharel em Ciências da Computação</li>
-      <li>📚 Licenciatura em Pedagogia</li>
-      <li>🎓 Pós em Docência no Ensino Superior</li>
-      <li>🎓 Pós em Gestão da TI e Estratégia Empresarial</li>
-    </ul>
+      <h2>🎯 Áreas de Atuação</h2>
+      <ul>
+        <li>💻 Programador & Suporte Técnico</li>
+        <li>🎓 Coordenação e Gestão de AVA (Moodle)</li>
+        <li>📊 Gestão Acadêmica e Pedagógica</li>
+        <li>🧠 Produção de Conteúdo Educacional</li>
+        <li>🏫 Supervisão e Tutoria no Ensino Superior</li>
+      </ul>
 
-    <h2>💼 Sobre mim</h2>
-    <p>22 anos, apaixonado por tecnologia e educação. Minha trajetória une exatas e humanas, com experiência em TI, gestão acadêmica e metodologias pedagógicas. Acredito no poder da educação como ferramenta de transformação social e digital.</p>
+      <h2>📘 Formações Acadêmicas</h2>
+      <ul>
+        <li>👨‍🎓 Bacharel em Ciências da Computação</li>
+        <li>📚 Licenciatura em Pedagogia</li>
+        <li>🎓 Pós em Docência no Ensino Superior</li>
+        <li>🎓 Pós em Gestão da TI e Estratégia Empresarial</li>
+      </ul>
 
-    <h2>📞 Contato</h2>
-    <ul class="contato">
-      <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelos%20canais%20digitais!" target="_blank">Clique aqui</a></li>
-      <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
-    </ul>
+      <h2>💼 Sobre mim</h2>
+      <p>22 anos, apaixonado por tecnologia e educação. Minha trajetória une exatas e humanas, com experiência em TI, gestão acadêmica e metodologias pedagógicas. Acredito no poder da educação como ferramenta de transformação social e digital.</p>
 
-    <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
+      <h2>📞 Contato</h2>
+      <ul>
+        <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelos%20canais%20digitais!" target="_blank">Clique aqui</a></li>
+        <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
+      </ul>
+
+      <div class="imagem-inferior">
+        <img src="menino-gamer.png" alt="Logo Diego Mateus - menino gamer">
+      </div>
+
+      <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
+    </div>
   </div>
 
   <script>
-    // Desativar clique direito e seleção
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('selectstart', e => e.preventDefault());
-
-    // Efeito Matrix no fundo
+    // === EFEITO MATRIX ===
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     canvas.height = window.innerHeight;
