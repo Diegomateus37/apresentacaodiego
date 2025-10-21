@@ -41,6 +41,24 @@
       color: #ff006e;
     }
 
+    /* 👋 Animação da mão acenando */
+    .hand {
+      display: inline-block;
+      animation: wave 2s infinite ease-in-out;
+      transform-origin: 70% 70%;
+      font-size: 1.2em;
+    }
+
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      10% { transform: rotate(14deg); }
+      20% { transform: rotate(-8deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+      60%, 100% { transform: rotate(0deg); }
+    }
+
     h2 {
       margin-top: 30px;
       color: #00ff6a;
@@ -136,7 +154,7 @@
 <body>
   <canvas id="matrix"></canvas>
   <div class="container">
-    <h1>Olá, eu sou o Diego Mateus 👋</h1>
+    <h1>Olá, eu sou o Diego Mateus <span class="hand">👋</span></h1>
     <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
     <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
@@ -155,20 +173,20 @@
     </ul>
 
     <h2>📘 Formações Acadêmicas</h2>
-<ul class="formacoes">
-  <li>👨‍🎓 Bacharel em Ciências da Computação</li>
-  <li>📚 Licenciatura em Pedagogia</li>
-  <ul>
-    <li>🔹 Especialização em Docência no Ensino Superior</li>
-    <li>🔹 Especialização em Orientação, Supervisão e Inspeção Escolar</li>
-  </ul>
+    <ul class="formacoes">
+      <li>👨‍🎓 Bacharel em Ciências da Computação</li>
+      <li>📚 Licenciatura em Pedagogia</li>
+      <ul>
+        <li>🔹 Especialização em Docência no Ensino Superior</li>
+        <li>🔹 Especialização em Orientação, Supervisão e Inspeção Escolar</li>
+      </ul>
 
-  <li><strong>🎓 Pós-Graduação em andamento:</strong></li>
-  <ul>
-    <li>🔹 Especialização em Gestão da Tecnologia da Informação nas Organizações</li>
-    <li>🔹 MBA em Gestão de Estratégia Empresarial</li>
-  </ul>
-</ul>
+      <li><strong>🎓 Pós-Graduação em andamento:</strong></li>
+      <ul>
+        <li>🔹 Especialização em Gestão da Tecnologia da Informação nas Organizações</li>
+        <li>🔹 MBA em Gestão de Estratégia Empresarial</li>
+      </ul>
+    </ul>
 
     <h2>💼 Sobre mim</h2>
     <p>22 anos, apaixonado por tecnologia e educação. Minha trajetória une exatas e humanas, com experiência em TI, gestão acadêmica e estratégias pedagógicas no ensino superior. Acredito no poder transformador da educação como caminho para gerar impacto real.</p>
