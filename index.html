@@ -41,7 +41,22 @@
       color: #ff006e;
     }
 
-    /* 👋 Animação da mão acenando */
+    /* Texto balançando junto com a mão */
+    .text-with-hand {
+      display: inline-block;
+      animation: text-sway 2s infinite ease-in-out;
+      transform-origin: center bottom;
+    }
+
+    @keyframes text-sway {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      20% { transform: translateX(2px) rotate(1deg); }
+      40% { transform: translateX(-2px) rotate(-1deg); }
+      60% { transform: translateX(2px) rotate(1deg); }
+      80% { transform: translateX(-2px) rotate(-1deg); }
+    }
+
+    /* Animação da mão acenando */
     .hand {
       display: inline-block;
       animation: wave 2s infinite ease-in-out;
@@ -148,32 +163,32 @@
       .quote {
         font-size: 1em;
       }
+
       .quote-container {
-  position: relative;
-  display: inline-block;
-  margin-top: 30px;
-}
+        position: relative;
+        display: inline-block;
+        margin-top: 30px;
+      }
 
-.quote-container img {
-  position: absolute;
-  top: -50px; /* ajusta verticalmente a posição da imagem */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px; /* ajuste o tamanho como preferir */
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
-  z-index: 2;
-}
+      .quote-container img {
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
+        z-index: 2;
+      }
 
-.quote-container .quote {
-  position: relative;
-  z-index: 1;
-  margin-top: 60px; /* cria espaço para a imagem */
-  font-style: italic;
-  color: #ccc;
-  font-size: 1.1em;
-}
-
+      .quote-container .quote {
+        position: relative;
+        z-index: 1;
+        margin-top: 60px;
+        font-style: italic;
+        color: #ccc;
+        font-size: 1.1em;
+      }
     }
   </style>
 </head>
@@ -181,10 +196,13 @@
 
   <canvas id="matrix"></canvas>
 
-  
-  <canvas id="matrix"></canvas>
   <div class="container">
-    <h1>Olá, eu sou o Diego Mateus <span class="hand">👋</span></h1>
+    <h1>
+      <span class="text-with-hand">
+        Olá, eu sou o Diego Mateus <span class="hand">👋</span>
+      </span>
+    </h1>
+
     <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
     <img src="Diego img .jpeg" alt="Apresentação Diego Mateus">
 
@@ -235,10 +253,12 @@
       <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelos%20canais%20digitais!" target="_blank">Clique aqui</a></li>
       <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
     </ul>
-      <div class="quote-container">
-  <img src="menino-gamer.png" alt="Menino Gamer">
-  <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
-</div>
+
+    <div class="quote-container">
+      <img src="menino-gamer.png" alt="Menino Gamer">
+      <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
+    </div>
+  </div>
 
   <script>
     // Proteção: desativar clique direito e seleção de texto
