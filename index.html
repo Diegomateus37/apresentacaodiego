@@ -21,12 +21,17 @@ body {
   color: #1f2f2b;
 }
 
-/* ===== FUNDO ANIMADO ===== */
+/* ===== FUNDO ANIMADO (ESCURECIDO) ===== */
 canvas {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(32, 74, 63, 0.55),
+    rgba(20, 56, 48, 0.55)
+  );
 }
 
 /* ===== CONTAINER ===== */
@@ -47,7 +52,6 @@ canvas {
 
   position: relative;
   z-index: 1;
-
   animation: popIn 0.9s cubic-bezier(.17,.67,.32,1.25);
 }
 
@@ -167,6 +171,7 @@ a:hover {
     <li>Apoio pedagógico a docentes e coordenações</li>
     <li>Secretaria Acadêmica</li>
     <li>Suporte técnico acadêmico e sistemas educacionais</li>
+    <li>Assistência técnica administrativa e atendimento a clientes em loja de móveis e eletrodomésticos</li>
   </ul>
 
   <!-- FORMAÇÕES -->
@@ -210,7 +215,7 @@ a:hover {
 
 </div>
 
-<!-- FUNDO FLUTUANTE CLARO -->
+<!-- FUNDO FLUTUANTE -->
 <script>
 const canvas = document.getElementById("background");
 const ctx = canvas.getContext("2d");
@@ -223,11 +228,11 @@ resize();
 addEventListener("resize", resize);
 
 const words = [
-  {t:"Educação", c:"rgba(47,111,95,0.35)"},
-  {t:"Tecnologia", c:"rgba(138,109,47,0.35)"},
-  {t:"Conhecimento", c:"rgba(59,95,86,0.35)"},
-  {t:"Mentoria", c:"rgba(31,107,87,0.35)"},
-  {t:"Inovação", c:"rgba(90,111,104,0.35)"}
+  {t:"Educação", c:"rgba(210,175,55,0.75)"},
+  {t:"Tecnologia", c:"rgba(0,200,150,0.75)"},
+  {t:"Conhecimento", c:"rgba(120,200,180,0.75)"},
+  {t:"Mentoria", c:"rgba(180,210,200,0.75)"},
+  {t:"Inovação", c:"rgba(255,215,120,0.75)"}
 ];
 
 const items = [];
@@ -240,8 +245,8 @@ class Word {
     const w = words[Math.floor(Math.random()*words.length)];
     this.text = w.t;
     this.color = w.c;
-    this.size = Math.random()*20 + 14;
-    this.speed = Math.random()*0.45 + 0.25;
+    this.size = Math.random()*22 + 16;
+    this.speed = Math.random()*0.5 + 0.35;
   }
   draw(){
     ctx.fillStyle = this.color;
@@ -250,12 +255,12 @@ class Word {
   }
   update(){
     this.y -= this.speed;
-    if(this.y < -40) this.reset();
+    if(this.y < -50) this.reset();
     this.draw();
   }
 }
 
-for(let i=0;i<40;i++) items.push(new Word());
+for(let i=0;i<45;i++) items.push(new Word());
 
 function animate(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
