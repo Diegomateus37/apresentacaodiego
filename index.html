@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diego Mateus - Apresentação</title>
+  <title>Diego Mateus | Educação & Tecnologia</title>
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,185 +13,12 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      text-align: center;
       background: #0d0d0d;
       overflow-x: hidden;
       user-select: none;
     }
 
-    .container {
-      max-width: 800px;
-      width: 90%;
-      margin: 20px;
-      padding: 30px;
-      border-radius: 15px;
-      background: rgba(40, 40, 40, 0.95);
-      box-shadow: 0 0 25px rgba(0, 255, 100, 0.25), 0 0 60px rgba(0, 255, 100, 0.15);
-      z-index: 1;
-      position: relative;
-      color: #f5f5f5;
-    }
-
-    h1 {
-      color: #00ff6a;
-      font-size: 2.2em;
-    }
-
-    h1::before {
-      content: "</> ";
-      color: #ff006e;
-    }
-
-    /* Texto + mão com efeito 3D */
-    .text-with-hand {
-      display: inline-block;
-      transform-origin: bottom center;
-      animation: text-hand-3d 2s infinite ease-in-out;
-      perspective: 1000px;
-    }
-
-    @keyframes text-hand-3d {
-      0%, 100% { transform: translateX(0) rotateY(0deg) rotateZ(0deg); }
-      10% { transform: translateX(1px) rotateY(2deg) rotateZ(3deg); }
-      20% { transform: translateX(3px) rotateY(5deg) rotateZ(7deg); }
-      30% { transform: translateX(1px) rotateY(2deg) rotateZ(3deg); }
-      40% { transform: translateX(-1px) rotateY(-2deg) rotateZ(-3deg); }
-      50% { transform: translateX(-3px) rotateY(-5deg) rotateZ(-7deg); }
-      60% { transform: translateX(-1px) rotateY(-2deg) rotateZ(-3deg); }
-      70% { transform: translateX(1px) rotateY(2deg) rotateZ(3deg); }
-      80% { transform: translateX(2px) rotateY(4deg) rotateZ(5deg); }
-      90% { transform: translateX(0) rotateY(0deg) rotateZ(0deg); }
-    }
-
-    /* Animação 3D da mão */
-    .hand {
-      display: inline-block;
-      animation: hand-wave-3d 2s infinite ease-in-out;
-      transform-origin: 70% 70%;
-      font-size: 1.2em;
-    }
-
-    @keyframes hand-wave-3d {
-      0% { transform: rotateY(0deg) rotateZ(0deg); }
-      10% { transform: rotateY(10deg) rotateZ(20deg); }
-      20% { transform: rotateY(-8deg) rotateZ(-15deg); }
-      30% { transform: rotateY(10deg) rotateZ(20deg); }
-      40% { transform: rotateY(-5deg) rotateZ(-10deg); }
-      50% { transform: rotateY(8deg) rotateZ(15deg); }
-      60% { transform: rotateY(-3deg) rotateZ(-5deg); }
-      70%, 100% { transform: rotateY(0deg) rotateZ(0deg); }
-    }
-
-    h2 {
-      margin-top: 30px;
-      color: #00ff6a;
-      border-bottom: 1px solid #555;
-      padding-bottom: 6px;
-    }
-
-    img.profile {
-      margin: 60px auto 20px auto;
-      border-radius: 50%;
-      max-width: 180px;
-      display: block;
-      border: 3px solid #00ff6a;
-      box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      user-drag: none;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul li {
-      margin: 8px 0;
-      color: #ffffff;
-    }
-
-    .contato li::before {
-      content: "📌 ";
-      color: #ff4aff;
-    }
-
-    .formacoes li::before {
-      content: "";
-    }
-
-    a {
-      color: #00ff6a;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    a:hover {
-      color: #ff006e;
-      text-shadow: 0 0 8px #ff006e;
-    }
-
-    /* Bloco da Sêneca com imagem flutuante */
-    .quote-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 30px;
-    }
-
-    .quote-container img {
-      width: 100px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
-      margin-bottom: 20px;
-
-      /* Efeito de flutuação */
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .quote-container .quote {
-      font-style: italic;
-      color: #ccc;
-      font-size: 1.1em;
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 20px;
-      }
-
-      img.profile {
-        margin-top: 80px;
-        max-width: 150px;
-      }
-
-      h1 {
-        font-size: 1.8em;
-      }
-
-      h2 {
-        font-size: 1.2em;
-      }
-
-      .quote-container img {
-        width: 80px;
-        margin-bottom: 15px;
-        animation: float 3s ease-in-out infinite;
-      }
-
-      .quote-container .quote {
-        font-size: 1em;
-      }
-    }
-
+    /* FUNDO ANIMADO */
     canvas {
       position: fixed;
       top: 0;
@@ -200,113 +28,221 @@
       height: 100%;
       pointer-events: none;
     }
-  </style>
-</head>
-<body>
 
-  <canvas id="matrix"></canvas>
+    .container {
+      max-width: 820px;
+      width: 90%;
+      margin: 40px 0;
+      padding: 35px;
+      border-radius: 16px;
+      background: rgba(40, 40, 40, 0.95);
+      box-shadow: 0 0 30px rgba(0, 255, 120, 0.25);
+      z-index: 1;
+      opacity: 0;
+      transform: scale(0.96) translateY(25px);
+      animation: entrada 0.9s ease-out forwards;
+    }
 
-  <div class="container">
-    <h1>
-      <span class="text-with-hand">
-        Olá, eu sou o Diego Mateus <span class="hand">👋</span>
-      </span>
-    </h1>
-
-    <p><strong>Bem-vindo ao meu perfil profissional.</strong></p>
-    <img class="profile" src="Diego img .jpeg" alt="Apresentação Diego Mateus">
-
-    <h2>🎯 Algumas das áreas em que já atuei</h2>
-    <ul class="atuacao">
-      <li>⚡ Graduação & Pós-Graduação (Lato Sensu)</li>
-      <li>⚡ Coordenação e Gestão de AVA (Moodle)</li>
-      <li>⚡ Gestão Acadêmica e Pedagógica</li>
-      <li>⚡ Produção de Conteúdo e Tutoria Educacional</li>
-      <li>⚡ Secretaria Acadêmica</li>
-      <li>⚡ Programador de Sistemas de Informação</li>
-      <li>⚡ Suporte Técnico em TI</li>
-      <li>⚡ Conhecimento prático em Banco de Dados</li>
-      <li>⚡ Assistência Técnica em Eletrocomercial e Móveis</li>
-      <li>⚡ Suporte Técnico Digital (Trocas, devoluções e chamados de garantia)</li>
-    </ul>
-
-    <h2>📘 Formações Acadêmicas</h2>
-    <ul class="formacoes">
-      <li>👨‍🎓 Bacharel em Ciências da Computação</li>
-      <li>📚 Formação Pedagógica em Informática</li>
-      <li>📚 Licenciatura em Pedagogia</li>
-      <ul>
-        <li>🔹 Especialista em Docência no Ensino Superior</li>
-        <li>🔹 Especialista em Orientação, Supervisão e Inspeção Escolar</li>
-        <li>🔹 Especialista em Gestão da Tecnologia da Informação nas Organizações</li>
-      </ul>
-
-      <li><strong>🎓 Pós-Graduação em andamento:</strong></li>
-      <ul>
-        <li>🔹 MBA em Gestão de Estratégia Empresarial</li>
-      </ul>
-    </ul>
-
-    <h2>💼 Sobre mim</h2>
-    <p>22 anos, apaixonado por tecnologia e educação. Minha trajetória une exatas e humanas, com experiência em TI, gestão acadêmica e estratégias pedagógicas no ensino superior. Acredito no poder transformador da educação como caminho para gerar impacto real.</p>
-
-    <h2>🚀 Atuação Profissional (Ensino Superior)</h2>
-    <ul class="meutrabalho">
-      <li>👨‍🏫 Mentor Acadêmico</li>
-      <li>👨‍🏫 Auxílio em TCC, estágios e orientação acadêmica</li>
-      <li>👨‍🏫 Atuação em apoio pedagógico e suporte em TI</li>
-      <li>👨‍🏫 Mentoria em projetos acadêmicos</li>
-      <li>🧑‍💻 Suporte técnico</li>
-
-    </ul>
-    <p><strong>Se tiver interesse em algum desses trabalhos, entre em contato no link abaixo 👇</strong></p>
-
-    <h2>📞 Contato</h2>
-    <ul class="contato">
-      <li>WhatsApp: <a href="https://wa.me/5533984515507?text=Olá%20Diego,%20vim%20pelos%20canais%20digitais!" target="_blank">Clique aqui</a></li>
-      <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
-    </ul>
-
-    <div class="quote-container">
-      <img src="menino-gamer.png" alt="Menino Gamer">
-      <p class="quote">Sêneca – “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.”</p>
-    </div>
-  </div>
-
-  <script>
-    // Proteção: desativar clique direito e seleção de texto
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('selectstart', e => e.preventDefault());
-
-    // Canvas Matrix
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const letters = ["<Diego>", "<Mateus>", "<Educação>", "<TI>"];
-    const fontSize = 18;
-    const columns = canvas.width / fontSize;
-    const drops = Array.from({length: columns}, () => 1);
-
-    function draw() {
-      ctx.fillStyle = "rgba(13, 13, 13, 0.1)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#00cc66";
-      ctx.font = fontSize + "px monospace";
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        drops[i] = (drops[i] * fontSize > canvas.height && Math.random() > 0.975) ? 0 : drops[i] + 1;
+    @keyframes entrada {
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
       }
     }
 
-    setInterval(draw, 60);
-    window.addEventListener("resize", () => {
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    });
-  </script>
+    h1 {
+      color: #00ff8c;
+      font-size: 2.2em;
+      text-align: center;
+    }
+
+    h1::before {
+      content: "</> ";
+      color: #ff006e;
+    }
+
+    h2 {
+      margin-top: 35px;
+      color: #00ff8c;
+      border-bottom: 1px solid #555;
+      padding-bottom: 6px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    img.profile {
+      margin: 60px auto 25px;
+      border-radius: 50%;
+      max-width: 180px;
+      display: block;
+      border: 3px solid #00ff8c;
+      box-shadow: 0 0 18px rgba(0, 255, 140, 0.45);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+    }
+
+    ul li {
+      margin: 9px 0;
+    }
+
+    .atuacao li::before {
+      content: "▸ ";
+      color: #00ff8c;
+    }
+
+    .contato li::before {
+      content: "📌 ";
+    }
+
+    a {
+      color: #00ff8c;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ff006e;
+    }
+
+    .quote {
+      margin-top: 40px;
+      font-style: italic;
+      color: #bbb;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
+      .container { padding: 25px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="background"></canvas>
+
+<div class="container">
+
+  <h1>Olá, eu sou o Diego Mateus 👋</h1>
+  <p style="text-align:center;"><strong>Educação, Tecnologia e Gestão</strong></p>
+
+  <img class="profile" src="Diego img .jpeg" alt="Diego Mateus">
+
+  <!-- EXPERIÊNCIA -->
+  <h2>🎯 Experiência Profissional e Acadêmica</h2>
+  <ul class="atuacao">
+    <li>Atuação em Graduação e Pós-Graduação (Lato Sensu)</li>
+    <li>Mentoria e acompanhamento acadêmico</li>
+    <li>Orientação em TCC, projetos acadêmicos e estágios</li>
+    <li>Conteudista educacional (desenvolvimento, revisão e padronização de conteúdos acadêmicos)</li>
+    <li>Coordenação e gestão de AVA – Moodle</li>
+    <li>Tutoria acadêmica</li>
+    <li>Apoio pedagógico a docentes e coordenações</li>
+    <li>Secretaria Acadêmica (processos acadêmicos e documentação institucional)</li>
+    <li>Suporte técnico acadêmico e sistemas educacionais</li>
+    <li>Programação de sistemas de informação</li>
+    <li>Conhecimento prático em banco de dados</li>
+  </ul>
+
+  <!-- FORMAÇÃO -->
+  <h2>📘 Formações Acadêmicas</h2>
+  <ul>
+    <li>👨‍🎓 Bacharel em Ciências da Computação</li>
+    <li>📚 Formação Pedagógica em Informática</li>
+    <li>📚 Licenciatura em Pedagogia</li>
+    <li>🎖️ Especialista em Docência no Ensino Superior</li>
+    <li>🎖️ Especialista em Orientação, Supervisão e Inspeção Escolar</li>
+    <li>🎖️ Especialista em Gestão da Tecnologia da Informação nas Organizações</li>
+    <li><strong>📚 MBA em Gestão de Estratégia Empresarial (em andamento)</strong></li>
+  </ul>
+
+  <!-- SOBRE -->
+  <h2>💼 Sobre mim</h2>
+  <p>
+    Sou profissional com atuação integrada nas áreas de Educação, Tecnologia da Informação e Gestão.
+    Minha trajetória combina conhecimento técnico, visão pedagógica e experiência acadêmica no ensino
+    superior, com foco em mentoria educacional, gestão de ambientes virtuais de aprendizagem e suporte
+    institucional. Acredito na educação aliada à tecnologia como instrumento estratégico de
+    transformação e impacto social.
+  </p>
+
+  <!-- CONTATO -->
+  <h2>📞 Contato</h2>
+  <ul class="contato">
+    <li>WhatsApp: <a href="https://wa.me/5533984515507" target="_blank">Clique aqui</a></li>
+    <li>E-mail: <a href="mailto:diego.profissional37@outlook.com">diego.profissional37@outlook.com</a></li>
+  </ul>
+
+  <p class="quote">
+    “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.” — Sêneca
+  </p>
+
+</div>
+
+<!-- SCRIPT FUNDO ELEGANTE -->
+<script>
+const canvas = document.getElementById("background");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const words = [
+  "Educação", "Tecnologia", "Mentoria",
+  "Conhecimento", "Inovação", "Aprendizagem"
+];
+
+const particles = [];
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.text = words[Math.floor(Math.random() * words.length)];
+    this.size = Math.random() * 14 + 10;
+    this.speed = Math.random() * 0.3 + 0.15;
+    this.opacity = Math.random() * 0.35 + 0.2;
+  }
+
+  draw() {
+    ctx.fillStyle = `rgba(0, 255, 150, ${this.opacity})`;
+    ctx.font = `${this.size}px Segoe UI`;
+    ctx.fillText(this.text, this.x, this.y);
+  }
+
+  update() {
+    this.y -= this.speed;
+    if (this.y < -30) {
+      this.y = canvas.height + 30;
+      this.x = Math.random() * canvas.width;
+    }
+    this.draw();
+  }
+}
+
+for (let i = 0; i < 28; i++) {
+  particles.push(new Particle());
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => p.update());
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
+
 </body>
 </html>
