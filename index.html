@@ -35,7 +35,7 @@ canvas {
 .container {
   max-width: 860px;
   width: 92%;
-  margin: 60px auto;
+  margin: 120px auto; /* MAIS ESPAÇO AO ABRIR */
   padding: 50px;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.58);
@@ -176,12 +176,8 @@ a:hover {
   <img class="profile" src="Diego img .jpeg" alt="Diego Mateus">
 
   <!-- APOIO ACADÊMICO -->
-  <h2>📚 Apoio Acadêmico e Orientações</h2>
-
-  <p>
+  <p style="text-align:center; font-size:1.2em; font-weight:600; color:#3b5a40; margin-top:35px;">
     Está precisando de apoio na sua vida acadêmica?
-    Entre em contato pelos meios abaixo e receba orientação personalizada
-    para avançar com mais segurança e organização.
   </p>
 
   <ul class="atuacao">
@@ -192,9 +188,14 @@ a:hover {
     <li>Orientações pedagógicas e institucionais</li>
   </ul>
 
+  <p style="text-align:center; margin-top:22px; color:#4d6b56;">
+    Entre em contato pelos meios abaixo e receba orientação personalizada
+    para avançar com mais segurança e organização.
+  </p>
+
   <p style="text-align:center; margin-top:18px;">
-    📞 <a href="https://wa.me/5533984515507">WhatsApp</a> &nbsp;|&nbsp;
-    📧 <a href="mailto:diego.profissional37@outlook.com">
+    <a class="blink" href="https://wa.me/5533984515507">WhatsApp</a><br>
+    <a class="blink" href="mailto:diego.profissional37@outlook.com">
       diego.profissional37@outlook.com
     </a>
   </p>
@@ -235,14 +236,6 @@ a:hover {
     para gerar impacto real.
   </p>
 
-  <!-- CONTATO -->
-  <h2>📞 Contato</h2>
-  <ul>
-    <li>WhatsApp: <a class="blink" href="https://wa.me/5533984515507">Clique aqui</a></li>
-    <li>E-mail: <a class="blink" href="mailto:diego.profissional37@outlook.com">
-      diego.profissional37@outlook.com</a></li>
-  </ul>
-
   <p style="font-style:italic; color:#5f6f63; margin-top:45px; text-align:center;">
     “Enquanto aprenderes, viverás; enquanto ensinares, multiplicarás a vida.” — Sêneca
   </p>
@@ -252,6 +245,92 @@ a:hover {
   </div>
 
 </div>
+
+<!-- FUNDO FLUTUANTE -->
+<script>
+const canvas = document.getElementById("background");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+}
+resize();
+addEventListener("resize", resize);
+
+const words = [
+  {t:"Educação", c:"rgba(220,190,95,0.85)"},
+  {t:"Tecnologia", c:"rgba(120,200,170,0.85)"},
+  {t:"Conhecimento", c:"rgba(200,220,200,0.85)"},
+  {t:"Mentoria", c:"rgba(255,215,140,0.85)"},
+  {t:"Inovação", c:"rgba(180,200,160,0.85)"}
+];
+
+const items = [];
+
+class Word {
+  constructor(){ this.reset(); }
+  reset(){
+    this.x = Math.random()*canvas.width;
+    this.y = Math.random()*canvas.height;
+    const w = words[Math.floor(Math.random()*words.length)];
+    this.text = w.t;
+    this.color = w.c;
+    this.size = Math.random()*22 + 16;
+    this.speed = Math.random()*0.6 + 0.35;
+  }
+  draw(){
+    ctx.fillStyle = this.color;
+    ctx.font = `${this.size}px Segoe UI`;
+    ctx.fillText(this.text,this.x,this.y);
+  }
+  update(){
+    this.y -= this.speed;
+    if(this.y < -60) this.reset();
+    this.draw();
+  }
+}
+
+for(let i=0;i<48;i++) items.push(new Word());
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  items.forEach(w=>w.update());
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+<!-- TYPEWRITER -->
+<script>
+const texts = [
+  "Caro usuário,",
+  "sou Diego Mateus",
+  "seja bem-vindo"
+];
+
+const el = document.getElementById("typewriter");
+let t = 0, c = 0;
+
+function type(){
+  if(t < texts.length){
+    if(c < texts[t].length){
+      el.innerHTML = texts[t].substring(0,c+1) + '<span class="cursor"></span>';
+      c++;
+      setTimeout(type, 85);
+    } else {
+      setTimeout(()=>{
+        c = 0;
+        t++;
+        type();
+      }, 700);
+    }
+  } else {
+    el.innerHTML = texts[texts.length-1];
+  }
+}
+type();
+</script>
 
 </body>
 </html>
